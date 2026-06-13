@@ -40,8 +40,8 @@
 
         /* تنسيق شريط الدعاء الإيماني أعلى الصفحة */
         .top-blessing {
-            background-color: ;
-            color:s #2A3B37; 
+            background-color:var(--primary-color);
+             color:s #2A3B37; 
             text-align: center;
             padding: 8px 10px;
             font-size: 0.95rem;
@@ -247,20 +247,19 @@
         }
 
         .product-name {
-            font-size: 0.9rem;
-            font-weight: 700;
-            margin: 8px 0 5px 0;
-            height: 40px;
-            overflow: hidden;
-        }
+    font-size: 1rem;
+    font-weight: 800;
+    margin-bottom: 2px; /* صغرنا المسافة السفلية جداً */
+    height: auto; /* جعلنا الارتفاع تلقائي على حجم الكلمة */
+}
 
-        .product-desc {
-            font-size: 0.78rem;
-            color: var(--text-muted);
-            margin-bottom: 5px;
-            height: 35px;
-            overflow: hidden;
-        }
+       .product-desc {
+    font-size: 0.85rem; /* كبرنا الخط درجة بسيطة ليكون أوضح */
+    color: var(--text-muted);
+    margin-bottom: 8px;
+    height: auto; /* جعلنا الارتفاع تلقائي ليظهر كل النص */
+    line-height: 1.5; /* ترتيب المسافة بين السطور لتكون مريحة */
+}
 
         /* شارة ميزة أو فائدة المنتج التجارية */
         .product-benefit {
@@ -504,16 +503,16 @@
 
         /* بطاقة الآية الكريمة والدعاء الروحاني أسفل الموقع */
         .image-matched-spiritual-card {
-            background-color: #E6F6F3;
-            border-radius: 18px;
-            max-width: 94%;
+            background-color:var(--primary-color);
+            border-radius: 16px;
+            max-width: 91%;
             margin: 40px auto 25px auto;
             padding: 20px 25px;
             text-align: center;
         }
 
         .image-matched-spiritual-card p {
-            color: #1A302B;
+            color: #2A3B37;
             font-size: 0.95rem;
             font-weight: 700;
             line-height: 1.8;
@@ -521,8 +520,8 @@
 
         /* تذييل الصفحة الاحترافي الداكن لمعلومات المتجر الفرعي للزبون */
         .image-matched-footer {
-            background-color: var(--footer-dark);
-            color: #FFFFFF;
+            background-color: var(--primary-color);
+            color: #2A3B37;
             border-radius: 25px 25px 0 0;
             padding: 30px 20px;
             text-align: center;
@@ -592,7 +591,10 @@
             <button class="tab-btn active" onclick="filterCategory('all', this)">الكل</button>
             <button class="tab-btn" onclick="filterCategory('skincare', this)">عناية بالبشرة</button>
             <button class="tab-btn" onclick="filterCategory('haircare', this)">عناية بالشعر</button>
-            <button class="tab-btn" onclick="filterCategory('perfume', this)">العطور والمكياج والجسم</button>
+            <button class="tab-btn" onclick="filterCategory('perfume', this)">العطور </button>
+                   <button class="tab-btn" onclick="filterCategory('bodycare', this)">العناية بالجسم</button>
+<button class="tab-btn" onclick="filterCategory('makeup', this)">المكياج</button>
+
         </div>
         <div class="products-grid" id="allProductsGrid"></div>
     </section>
@@ -731,60 +733,563 @@
         const productsData = [
             // 1-13 منتجات كالييل (Calliel)
             { id: 1, name: "تونر كالييل بحمض الجليكوليك لتقشير البشرة", category: "skincare", price: 110, use: "تجديد خلايا البشرة، إزالة الجلد الميت وعلاج التصبغات الباهتة", benefit: "نضارة فائقة وتفتيح ملحوظ", size: "200 مل", tag: "bestseller", skinType: "mixed", issue: "pigmentation", img: "https://calliel.com.tr/cdn/shop/files/Glycolic-Acid-Tonic1.jpg?v=1767689915&width=848" },
+
             { id: 2, name: "منظف كالييل الرغوي الفقاعي للرؤوس السوداء", category: "skincare", price: 125, use: "تنظيف عميق جداً للمسام والتخلص التام من الرؤوس السوداء والزهم", benefit: "مسام نقية ومظهر صافي", size: "150 مل", tag: "bestseller", skinType: "oily", issue: "acne", img: "https://calliel.com.tr/cdn/shop/files/Bubble-Blackhead1.jpg?v=1767690037&width=848" },
+
             { id: 3, name: "سيروم كالييل المركز المهدئ وعلاجي للشوائب", category: "skincare", price: 130, use: "علاج عيوب البشرة المتهيجة، تنقية آثار الحبوب وتنظيم الإفرازات", benefit: "بشرة موحدة خالية من العيوب", size: "30 مل", tag: "normal", skinType: "sensitive", issue: "acne", img: "https://calliel.com.tr/cdn/shop/files/blemish-2.jpg?v=1767689972&width=540" },
-            { id: 4, name: "واقي شمس كالييل الملون ذو الحماية العالية SPF 50+", category: "skincare", price: 120, use: "حماية قصوى من الشمس مع تغطية فونديشن خفيفة وطبيعية توحد اللون", benefit: "حماية ونضارة يومية بلمسة واحدة", size: "50 مل", tag: "bestseller", skinType: "all", issue: "pigmentation", img: "https://calliel.com.tr/cdn/shop/files/Renkli-Gunes-Kremi1_e6b98830-93b2-4e35-bf0b-864369914445.jpg?v=1767690073&width=848" },
-            { id: 5, name: "مرطب وتينت كالييل لإصلاح الشفاه المكثف", category: "perfume", price: 65, use: "علاج تشققات وجفاف الشفاه العميقة مع إعطاء لون وردي جذاب وثابت", benefit: "شفاه ممتلئة ورطبة طوال اليوم", size: "15 مل", tag: "normal", skinType: "all", issue: "dryness", img: "https://calliel.com.tr/cdn/shop/files/Tint-Repair-1_8bc5766c-f586-4e03-8471-623b1d01484d.jpg?v=1779264606&width=848" },
+
+            { id: 4, name: "واقي شمس كالييل الملون ذو الحماية العالية SPF 50+", category: "skincare", price: 120, use: "حماية قصوى من الشمس مع تغطية فونديشن خفيفة وطبيعية توحد اللون", benefit: "حماية ونضارة يومية بلمسة واحدة", size: "50 مل", tag: " ", skinType: "all", issue: "pigmentation", img: "https://calliel.com.tr/cdn/shop/files/Renkli-Gunes-Kremi1_e6b98830-93b2-4e35-bf0b-864369914445.jpg?v=1767690073&width=848" },
+
+            { id: 5, name: "كريم عناية بالبشرة وترميمها", category: "skincare", price: 65, use: " إصلاح حاجز البشرة ,تهدئة التهيج والاحمرار ,موازنة لون البشرةوتوحيدها مضاد لعلامات التقدم بالعمر", benefit: "إصلاح حاجز البشرة", size: "50 مل", tag: "normal", skinType: "all", issue: "dryness", img: "https://calliel.com.tr/cdn/shop/files/Tint-Repair-1_8bc5766c-f586-4e03-8471-623b1d01484d.jpg?v=1779264606&width=848" },
+
             { id: 6, name: "غسول كالييل الرغوي الفقاعي المهدئ لحب الشباب", category: "skincare", price: 115, use: "تطهير عميق للبشرة المعرضة للحبوب والبثور دون التسبب بجفافها", benefit: "يجفف الحبوب بفعالية وسرعة", size: "150 مل", tag: "normal", skinType: "oily", issue: "acne", img: "https://calliel.com.tr/cdn/shop/files/Bubble-Blemish1.jpg?v=1767689972&width=848" },
+
             { id: 7, name: "تونر كالييل بحمض الكوجيك الفعّال لإزالة الكلف التصبغات", category: "skincare", price: 110, use: "تفتيح البقع الداكنة المستعصية، كلف الشمس، وآثار حب الشباب القديمة", benefit: "توحيد مذهل ومشرق للون البشرة", size: "200 مل", tag: "normal", skinType: "all", issue: "pigmentation", img: "https://calliel.com.tr/cdn/shop/files/Kojic-Acid-Tonic1.jpg?v=1767690173&width=848" },
+
             { id: 8, name: "تونر كالييل PHA لتقشير لطيف للبشرة الحساسة", category: "skincare", price: 110, use: "تقشير سطحي لطيف مخصص للبشرات الشديدة التحسس لإزالة الخلايا الميتة", benefit: "نعومة فائقة بدون أي تهيج", size: "200 مل", tag: "normal", skinType: "sensitive", issue: "pigmentation", img: "https://calliel.com.tr/cdn/shop/files/PHA-Tonic1.jpg?v=1767690236&width=848" },
+
             { id: 9, name: "تونر كالييل بحمض المانديليك لتنقية المسام وتفتيحها", category: "skincare", price: 110, use: "مقشر أحماض لطيف ممتاز للمسام الواسعة وتصفية مظهر البشرة المختلطة", benefit: "شد المسام وزيادة نضارة الوجه", size: "200 مل", tag: "normal", skinType: "mixed", issue: "acne", img: "https://calliel.com.tr/cdn/shop/files/Mandelic-Acid-Tonic1.jpg?v=1767690207&width=848" },
-            { id: 10, name: "تونر كالييل بحمض الساليسيليك الفعّال لحب الشباب", category: "skincare", price: 110, use: "يتغلغل لعمق المسام ليذيب الدهون والأوساخ، مانعاً تشكل البثور الجديدة", benefit: "تصفية تامة للبشرة الدهنية", size: "200 مل", tag: "normal", skinType: "oily", issue: "acne", img: "https://calliel.com.tr/cdn/shop/files/Salicylic-Acid-Tonic1.jpg?v=1767690004&width=980" },
+
+            { id: 10, name: "تونر كالييل بحمض الساليسيليك الفعّال لحب الشباب", category: "skincare", price: 110, use: "يتغلغل لعمق المسام ليذيب الدهون والأوساخ، مانعاً تشكل البثور الجديدة", benefit: "تصفية تامة للبشرة الدهنية", size: "200 مل", tag: "bestseller", skinType: "oily", issue: "acne", img: "https://calliel.com.tr/cdn/shop/files/Salicylic-Acid-Tonic1.jpg?v=1767690004&width=980" },
+
             { id: 11, name: "تونر كالييل بحليب الأرز المغذي والمرطب المكثف", category: "skincare", price: 105, use: "ترطيب ومكافحة الجفاف الشديد والخشونة للبشرة الباهتة بمستخلص الأرز", benefit: "ملمس ناعم كالحرير ونضارة فورية", size: "200 مل", tag: "normal", skinType: "dry", issue: "dryness", img: "https://calliel.com.tr/cdn/shop/files/Rice-Milk-Tonik1.jpg?v=1767689847&width=848" },
+
             { id: 12, name: "واقي شمس كالييل المرطب والواقي اليومي الشامل", category: "skincare", price: 110, use: "حماية واسعة النطاق من أشعة الشمس الضارة مع حماية حاجز البشرة الطبيعي", benefit: "مقاوم للتعرق ولا يترك علامات بيضاء", size: "50 مل", tag: "normal", skinType: "all", issue: "all", img: "https://calliel.com.tr/cdn/shop/files/Gunes-Kremi1.jpg?v=1767689941&width=848" },
+
             { id: 13, name: "واقي شمس كالييل الخفي الشفاف تماماً (Unseen)", category: "skincare", price: 120, use: "قوام جل شفاف خفيف للغاية يمتص فوراً، مثالي كأساس ومثبت للمكياج", benefit: "مظهر غير لامع ومخملي ساحر", size: "50 مل", tag: "bestseller", skinType: "mixed", issue: "all", img: "https://calliel.com.tr/cdn/shop/files/Unseen-Sunscreen1_399c1740-8227-4753-b0c9-0e5d0095b440.jpg?v=1767690364&width=848" },
 
             // 14-19 منتجات هيلو بيوتي سكواد (Hello Beauty Squad)
             { id: 14, name: "كريم هيمالايا المغذي للبشرة", category: "skincare", price: 95, use: "هذا الكريم مخصص لترطيب وتغذية البشرة، حيث يحتوي على مكونات طبيعية تساعد على الحفاظ على نعومة الجلد وحمايته من الجفاف", benefit: "إشراقة ونقاء فوري", size: "150 مل", tag: "normal", skinType: "sensitive", issue: "pigmentation", img: "https://www.bing.com/th/id/OIP.kwNbc-AV610oTmM-s4a80gHaHa?w=180&h=180&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" },
 
             { id: 15, name: " واقي الشمس YC Sun Screen SPF 50 PA+", category: "skincare", price: 115, use: " يوفر حماية قوية ضد الأشعة فوق البنفسجية UVB المسببة لحروق الشمس، وPA+ للحماية من الأشعة UVA التي تسبب الشيخوخة المبكرة للبشرة", benefit: " قوام خفيف وسريع الامتصاص ومناسب لجميع أنواع البشرة", size: "30 مل", tag: "normal", skinType: "oily", issue: "acne", img: "https://www.bing.com/th/id/OIP.DYpYii1Lzfi6e7NnSVHJUQHaHa?w=180&h=180&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" },
-            { id: 16, name: "زبدة البطن من بالمرز لعلاج علامات التمدد", category: "skincare", price: 130, use: "مصمم خصيصًا للمساعدة في تحسين مرونة الجلد وتقليل مظهر علامات التمدد ، خاصة أثناء الحمل أو عند تغيّر الوزن", benefit: "ترطيب عميق وتغذية البشرة.", size: "50 مل", tag: "normal", skinType: "all", issue: "wrinkles", img: "https://www.bing.com/th/id/OIP.H8Cmk89KwAvIkXP8wFTX7AAAAA?w=180&h=248&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" },
-            { id: 17, name: "كريم بالمرز بزبدة الكاكاو لمنطقة الصدر", category: "skincare", price: 120, use: " كريم مخصص للعناية بالبشرة في منطقة الصدر، يحتوي على زبدة الكاكاو وفيتامين E بالإضافة إلى الكولاجين والإيلاستين وزبدة الشيا.", benefit: "ترطيب وشد طبيعي ونعومة مثالية", size: "30 مل", tag: "normal", skinType: "dry", issue: "dryness", img: "https://thfvnext.bing.com/th/id/OIP.uS9BGTuT7iFLdoh0-ByaGwHaHa?w=219&h=219&c=7&r=0&o=7&cb=thfvnextfalcon2&dpr=1.3&pid=1.7&rm=3" },
-            { id: 18, name: "غسول الجيلي المنظف واللطيف من هيلو بيوتي سكواد", category: "skincare", price: 90, use: "تنظيف متوازن يزيل الأوساخ والمكياج بلطف تام مع الحفاظ على ترطيب البشرة", benefit: "انتعاش مريح دون شد أو جفاف", size: "150 مل", tag: "normal", skinType: "sensitive", issue: "all", img: "https://tse1.mm.bing.net/th/id/OIP.30z6NOh2Lz1365IKRKbdpwHaJ4?cb=thfvnextfalcon2&rs=1&pid=ImgDetMain&o=7&rm=3" },
-            { id: 19, name: "مقشر الإنزيمات الأزرق هيلو بيوتي سكواد (Blue Moon)", category: "skincare", price: 120, use: "تقشير إنزيمي ناعم وخارق لتجديد نسيج البشرة وإعادة النضارة وتفتيح المسام", benefit: "مظهر مخملي ناصع البياض والنقاء", size: "50 جم", tag: "normal", skinType: "all", issue: "pigmentation", img: "https://hellobeautysquad.com/en/products/blue-moon-dust-enzyme-peeling" },
+
+            { id: 16, name: "زبدة ترطيب البطن  لعلاج علامات التمدد", category: "bodycare", price: 40, use: "مصمم خصيصًا للمساعدة في تحسين مرونة الجلد وتقليل مظهر علامات التمدد ، خاصة أثناء الحمل أو عند تغيّر الوزن", benefit: "ترطيب عميق وتغذية البشرة.", size: "50 مل", tag: "normal", skinType: "all", issue: "wrinkles", img: "https://www.bing.com/th/id/OIP.H8Cmk89KwAvIkXP8wFTX7AAAAA?w=180&h=248&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" },
+
+            { id: 17, name: "كريم بالمرز بزبدة الكاكاو لمنطقة الصدر", category: "bodycare", price: 40, use: " كريم مخصص للعناية بالبشرة في منطقة الصدر، يحتوي على زبدة الكاكاو وفيتامين E بالإضافة إلى الكولاجين والإيلاستين وزبدة الشيا.", benefit: "ترطيب وشد طبيعي ونعومة مثالية", size: "30 مل", tag: "normal", skinType: "dry", issue: "dryness", img: "https://thfvnext.bing.com/th/id/OIP.uS9BGTuT7iFLdoh0-ByaGwHaHa?w=219&h=219&c=7&r=0&o=7&cb=thfvnextfalcon2&dpr=1.3&pid=1.7&rm=3" },
+
+            { id: 18, name: "غسول الجيلي المنظف واللطيف من هيلو بيوتي سكواد", category: "skincare", price: 90, use: "تنظيف متوازن يزيل الأوساخ والمكياج بلطف تام مع الحفاظ على ترطيب البشرة", benefit: "انتعاش مريح دون شد أو جفاف", size: "150 مل", tag: "bestseller", skinType: "sensitive", issue: "all", img: "https://tse1.mm.bing.net/th/id/OIP.30z6NOh2Lz1365IKRKbdpwHaJ4?cb=thfvnextfalcon2&rs=1&pid=ImgDetMain&o=7&rm=3" },
+
 
             // 20-25 منتجات سكين ماستر (Skinmaster) - تم دمجها ومنع التكرار
             { id: 20, name: "سيروم سكين ماستر أربوتين ونياكيناميد للتفتيح المزدوج", category: "skincare", price: 135, use: "علاج التصبغات، إزالة آثار الحبوب المستعصية، مضاف إليه حمض الجليكوليك", benefit: "توحيد جبار للون وإشراقة وردية", size: "20 مل", tag: "bestseller", skinType: "all", issue: "pigmentation", img: "https://cdn.dsmcdn.com/ty1580/prod/QC/20241005/21/54214c60-ee10-3ba4-b459-7bfc5516a3c6/1_org_zoom.jpg" },
-            { id: 21, name: "لوشن ترطيب وتفتيح للجسم", category: "skincare", price: 140, use: " رائحة عطرية منعشة تدوم لفترة طويلة", benefit: "بشرة شابة مشدودة ونضرة جداً", size: "30 مل", tag: "normal", skinType: "all", issue: "wrinkles", img: "https://tse1.mm.bing.net/th/id/OIP.GIYEsHQXId7xzZhfI_6sLAHaHa?cb=thfc1falcon2&w=500&h=500&rs=1&pid=ImgDetMain&o=7&rm=3" },
+            { id: 21, name: "لوشن ترطيب وتفتيح للجسم", category: "bodycare", price: 140, use: " رائحة عطرية منعشة تدوم لفترة طويلة", benefit: "بشرة شابة مشدودة ونضرة جداً", size: "30 مل", tag: "normal", skinType: "all", issue: "wrinkles", img: "https://tse1.mm.bing.net/th/id/OIP.GIYEsHQXId7xzZhfI_6sLAHaHa?cb=thfc1falcon2&w=500&h=500&rs=1&pid=ImgDetMain&o=7&rm=3" },
+
             { id: 22, name: "غسول لعلاج حب الشباب", category: "skincare", price: 130, use: "مضاد أكسدة قوي ومشرق للوجه، يحتوي على نياكيناميد وحمض الهيالورونيك", benefit: "إضاءة ونضارة ومكافحة بهتان الجلد", size: "20 مل", tag: "normal", skinType: "all", issue: "pigmentation", img: "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-loth224c36kr7c" },
 
-            { id: 23, name: "لوشن الجسم من بالمرز برائحة زهرة الزنبق المائي", category: "skincare", price: 125, use: "يحتوي على مكونات طبيعية مثل زهرة الزنبق المائي، فيتامين E، ومستخلص الفطر الأبيض", benefit: "يساعد على توحيد لون البشرة ومنحها مظهراً متألقاً ومتوازناً", size: "30 مل", tag: "normal", skinType: "sensitive", issue: "acne", img: "https://http2.mlstatic.com/D_NQ_NP_831930-MLU73338608204_122023-O.webp" },
-            { id: 24, name: "لوشن تفتيح وتوحيد لون البشرة ", category: "skincare", price: 115, use: "  يحتوي على فيتامين E و5% نياسيناميد، وخالٍ من الهيدروكينون", benefit: "استهداف البقع الداكنة وتوحيد لون البشرة", size: "50 مل", tag: "normal", skinType: "all", issue: "dryness", img: "https://tse1.mm.bing.net/th/id/OIP.dOpzyfLbpXIgbEY8gLVgkgHaHa?cb=thfc1falcon2&w=1200&h=1200&rs=1&pid=ImgDetMain&o=7&rm=3" },
+            { id: 23, name: "لوشن الجسم من بالمرز برائحة زهرة الزنبق المائي", category: "bodycare", price: 125, use: "يحتوي على مكونات طبيعية مثل زهرة الزنبق المائي، فيتامين E، ومستخلص الفطر الأبيض", benefit: "يساعد على توحيد لون البشرة ومنحها مظهراً متألقاً ومتوازناً", size: "30 مل", tag: "normal", skinType: "sensitive", issue: "acne", img: "https://http2.mlstatic.com/D_NQ_NP_831930-MLU73338608204_122023-O.webp" },
+            { id: 24, name: "كريم تفتيح وتوحيد لون البشرة ", category: "skincare", price: 115, use: "  يحتوي على فيتامين E و5% نياسيناميد، وخالٍ من الهيدروكينون", benefit: "استهداف البقع الداكنة وتوحيد لون البشرة", size: "50 مل", tag: "normal", skinType: "all", issue: "dryness", img: "https://tse1.mm.bing.net/th/id/OIP.dOpzyfLbpXIgbEY8gLVgkgHaHa?cb=thfc1falcon2&w=1200&h=1200&rs=1&pid=ImgDetMain&o=7&rm=3" },
 
             { id: 25, name: "سيروم سكين ماستر BHA لتضييق المسام وإزالة الرؤوس السوداء", category: "skincare", price: 130, use: "منع تشكل الأكني والرؤوس المزعجة بمساعدة النياكيناميد والـ BHA", benefit: "مسام ضيقة ومظهر نقي ناعم", size: "30 مل", tag: "normal", skinType: "oily", issue: "acne", img: "https://flavus.com/cdn/shop/files/skinmaster-gozenek-sikilastirici-siyah-nokta-ve-akne-olusumunu-gidermeye-yardimci-bakim-serumu-bha-b3-ha-8683434733045-659808_grande.jpg?v=1711058222" },
 
             // 26-28 العناية بالجسم والمنظفات الطبية الأخرى
-            { id: 26, name: "لوشن فازلين الإشراقة اليومية وتفتيح الجسم المكثف", category: "perfume", price: 75, use: "ترطيب عميق وتوحيد وتفتيح لون بشرة الجسم واليدين مع حماية يومية", benefit: "بشرة جسم حريرية ومشرقة وعطرة", size: "400 مل", tag: "bestseller", skinType: "all", issue: "pigmentation", img: "https://media.karousell.com/media/photos/products/2023/5/14/vaseline_daily_brightening_lot_1684081679_78dc3862.jpg" },
+            { id: 26, name: "لوشن فازلين الإشراقة اليومية وتفتيح الجسم المكثف", category: "bodycare", price: 75, use: "ترطيب عميق وتوحيد وتفتيح لون بشرة الجسم واليدين مع حماية يومية", benefit: "بشرة جسم حريرية ومشرقة وعطرة", size: "400 مل", tag: "", skinType: "all", issue: "pigmentation", img: "https://media.karousell.com/media/photos/products/2023/5/14/vaseline_daily_brightening_lot_1684081679_78dc3862.jpg" },
+
             { id: 27, name: "غسول بان أوكسيل الرغوي الطبي لحب الشباب Benzoyl Peroxide", category: "skincare", price: 140, use: "الغسول رقم 1 الموصى به من أطباء الجلد لقتل بكتيريا الحبوب وتنظيف الجسم والوجه", benefit: "قضاء نهائي وسريع على حب الشباب", size: "156 جم", tag: "bestseller", skinType: "oily", issue: "acne", img: "https://hebronnutrition.com/cdn/shop/files/panoxyl_foaming_new_label_719hqT1t0KL._SL1500_1498x1498.jpg?v=1756157023" },
-            { id: 28, name: "غسول شوكوبوتسو النسائي للمناطق الحساسة (Everyday Confidence)", category: "perfume", price: 55, use: "تطهير يومي لطيف جداً يمنح الانتعاش والثقة طوال اليوم ويحافظ على مستويات الـ pH", benefit: "حماية يومية ناعمة ومنعشة برائحة فخمة", size: "250 مل", tag: "normal", skinType: "all", issue: "all", img: "https://www.thaibynature.com/export/image/cache/catalog/wholesale/health-beauty/feminine-care/shokubutsu-feminine-cleansin/everyday-confidence-630x420.jpg" },
+
+            { id: 28, name: "غسول شوكوبوتسو النسائي للمناطق الحساسة (Everyday Confidence)", category: "bodycare", price: 55, use: "تطهير يومي لطيف جداً يمنح الانتعاش والثقة طوال اليوم ويحافظ على مستويات الـ pH", benefit: "حماية يومية ناعمة ومنعشة برائحة فخمة", size: "250 مل", tag: "normal", skinType: "all", issue: "all", img: "https://www.thaibynature.com/export/image/cache/catalog/wholesale/health-beauty/feminine-care/shokubutsu-feminine-cleansin/everyday-confidence-630x420.jpg" },
 
             // 29-34 منتجات العناية بالشعر (Haircare)
             { id: 29, name: "شامبو هيمالايا العشبي لإصلاح الشعر الجاف والتالف", category: "haircare", price: 40, use: "تغذية عميقة للشعر المتعب والمتقصف بمستخلصات البروتين الطبيعية ليعيد الحيوية", benefit: "شعر رطب، قوي ولامع من الجذور", size: "400 مل", tag: "normal", skinType: "all", issue: "all", img: "https://img02.zdravnitza.com/6249-home_default/shampoan-za-suha-i-iztoshtena-kosa-himalaya-400-ml.jpg" },
             { id: 30, name: "شامبو هيمالايا لتكثيف الشعر وزيادة حيوية وحجم الخصلات", category: "haircare", price: 40, use: "يعطي كثافة ومظهر ممتلئ وصحي للشعر الخفيف والناعم بدون إثقال خصلاتك", benefit: "شعر كثيف، حيوي وذو مظهر جذاب", size: "400 مل", tag: "normal", skinType: "all", issue: "all", img: "https://himalayawellness.eu/cdn/shop/files/Volume-_-Thickness-Shampoo-Front.jpg?v=1708496043&width=1080" },
             { id: 31, name: "شامبو هيمالايا النعومة واللمعان الفائق للشعر الباهت", category: "haircare", price: 40, use: "ينعم ألياف الشعر الخشن والمتطاير، ويضفي لمعاناً كريستالياً ساحراً", benefit: "انسيابية فائقة وملمس حريري", size: "400 مل", tag: "normal", skinType: "all", issue: "all", img: "https://himalayawellness.my/cdn/shop/products/Shampoo-Softness-_-Shine-400ml.png?v=1653544638&width=1080" },
+
             { id: 32, name: "بخاخ عناية سائل للشعر بالكيراتين", category: "haircare", price: 85, use: "بخاخ سائل يفك تشابك الخصلات فوراً و مناسب للشعر الجاف أو المتضرر من الصبغات والسشوار", benefit: "نعومة فورية ولمعان طبيعي خلاب", size: "200 مل", tag: "bestseller", skinType: "all", issue: "all", img: "https://www.ogempharma.com/uploads/urunler/urban-care-argan-oil-sivi-sac-bakim-kremi-200-ml-5570.jpg" },
+
             { id: 33, name: "ماسك فانوﻻ (Fanola Smooth Care) الاحترافي لتمليس وفرد الشعر", category: "haircare", price: 120, use: "قناع صالونات غني بقطرات القطن، يسهل فرد الشعر المجعد ويقضي على النفشة تماماً", benefit: "نعومة فائقة وتمليس يدوم طويلاً", size: "500 مل", tag: "bestseller", skinType: "all", issue: "all", img: "https://www.esteto.bg/static/images/produse/77795/maska-za-izpravyane-na-kosata-fanola-smooth-care-straightening-mask-500ml-1.jpg" },
+
             { id: 34, name: "شامبو إيريس (Eriis) الإيطالي المطور والمقوي لخصلات الشعر ", category: "haircare", price: 110, use: "شامبو علاجي متطور يغذي بصيلات الشعر ويحارب التساقط الموسمي ويعيد بناء الفروة", benefit: "شعر قوي وسميك ومقاوم للتساقط", size: "200 مل", tag: "normal", skinType: "all", issue: "all", img: "https://th.bing.com/th/id/R.882e305ca8af069555f1fe73790f6846?rik=rCLNILbgZgjFpA&riu=http%3a%2f%2fwww.i-health.ae%2fcdn%2fshop%2fproducts%2fEriis-Repairing-Energizing-Shampoo-Women.jpg%3fv%3d1590051610&ehk=1pqoQMD3wshCI%2f8NFll8mclryNfp%2fA5Ffe%2fQtpKGQps%3d&risl=&pid=ImgRaw&r=0" },
 
             // 35-40 المنتجات الجمالية الفخمة والمكملة من بقية روابطك
-            { id: 35, name: "معطر وبودي ميست مون لينجري (Moon Lingerie) المثير للجسم", category: "perfume", price: 95, use: "رذاذ عطري فاخر وثابت للجسم يجمع بين النوتات الزهرية والمسك الدافئ الأنيق", benefit: "رائحة ساحرة وجاذبية تدوم طوال اليوم", size: "250 مل", tag: "bestseller", skinType: "all", issue: "all", img: "https://moon-lingerie.com/wp-content/uploads/2024/03/35-1.jpg" },
+            { id: 35, name: "معطر وبودي ميست مون لينجري (Moon Lingerie)", category: "perfume", price: 95, use: "رذاذ عطري فاخر وثابت للجسم يجمع بين النوتات الزهرية والمسك الدافئ الأنيق", benefit: "رائحة ساحرة وجاذبية تدوم طوال اليوم", size: "250 مل", tag: " ", skinType: "all", issue: "all", img: "https://moon-lingerie.com/wp-content/uploads/2024/03/35-1.jpg" },
 
-            { id: 36, name: " بخاخ شعر سائل (Leave-in) يحتوي على حمض الهيالورونيك والكولاجين،", category: "perfume", price: 90, use: "يساهم في تعزيز مرونة وقوة الشعر و يساعد على الاحتفاظ بالرطوبة داخل الشعر و يجعل الشعر أكثر نعومة ويسهّل تمشيطه", benefit: "  ترطيب الشعر تقوية الشعر حماية من أشعة الشمس تسهيل التصفيف", size: "100 مل", tag: "normal", skinType: "all", issue: "pigmentation", img: "https://tse3.mm.bing.net/th/id/OIP.5mUx1W04XyJ8CUloaidsDgHaLH?cb=thfc1falcon2&w=592&h=889&rs=1&pid=ImgDetMain&o=7&rm=3" },
-            { id: 37, name: "بلسم شعر بزيت الأرغان", category: "skincare", price: 80, use: "يُستخدم هذا البلسم بعد غسل الشعر بالشامبو للمساعدة في ترطيب الشعر، تغذيته، وتسهيل تسريحه. ", benefit: "إصلاح الشعر التالف، إضافة اللمعان، وتقليل التجعد.", size: "150 مل", tag: "normal", skinType: "all", issue: "pigmentation", img: "https://tse3.mm.bing.net/th/id/OIP.7mtEWcPdsroH0VDgLfmuaQHaHa?cb=thfc1falcon2&rs=1&pid=ImgDetMain&o=7&rm=3" },
-            { id: 38, name: "ماسك الشعر بزيت الأرغان", category: "perfume", price: 110, use: "يُستخدم لترطيب الشعر بعمق وتغذيته. زيت الأرغان غني بالأحماض الدهنية وفيتامين E", benefit: "وزيادة لمعان ونعومة الشعر.", size: "200 مل", tag: "normal", skinType: "all", issue: "dryness", img: "https://tse4.mm.bing.net/th/id/OIP.26t1D6jjX96nsL1t4cIhDQHaHa?cb=thfc1falcon2&rs=1&pid=ImgDetMain&o=7&rm=3" },
-            { id: 39, name: "بخاخ شعر سائل بزيت الأرغان ", category: "perfume", price: 85, use: " يعمل على تغذية الشعر، حمايته من أشعة الشمس  وتقليل التقصف", benefit: " تسهيل التصفيف ومنح الشعر لمعانًا", size: "50 مل", tag: "normal", skinType: "all", issue: "pigmentation", img: "https://images.migrosone.com/sanalmarket/product/34346295/34346295-3d4a2b-1650x1650.jpg" },
+            { id: 36, name: " بخاخ شعر سائل (Leave-in) يحتوي على حمض الهيالورونيك والكولاجين،", category: "haircare", price: 90, use: "يساهم في تعزيز مرونة وقوة الشعر و يساعد على الاحتفاظ بالرطوبة داخل الشعر و يجعل الشعر أكثر نعومة ويسهّل تمشيطه", benefit: "  ترطيب الشعر تقوية الشعر حماية من أشعة الشمس تسهيل التصفيف", size: "100 مل", tag: "normal", skinType: "all", issue: "pigmentation", img: "https://tse3.mm.bing.net/th/id/OIP.5mUx1W04XyJ8CUloaidsDgHaLH?cb=thfc1falcon2&w=592&h=889&rs=1&pid=ImgDetMain&o=7&rm=3" },
 
-            { id: 40, name: "منتج عناية بالشعر بزيت المونوي والإيلانغ إيلانغ", category: "skincare", price: 50, use: "  ستخدم عادةً على الشعر الجاف أو المبلل بدون شطف، ليساعد في تقليل الجفاف والتقصف خاصة في فصل الصيف أو عند التعرض للشمس والبحر.", benefit: "ايعمل على ترطيب الشعر وحمايته من أضرار أشعة الشمس بفضل احتوائه على فلتر للأشعة فوق البنفسجية", size: "250 مل", tag: "normal", skinType: "sensitive", issue: "dryness", img: "https://cdn1.ozone.ru/s3/multimedia-1-m/c600/7047818374.jpg" }
+            { id: 37, name: "بلسم شعر بزيت الأرغان", category: "haircare", price: 80, use: "يُستخدم هذا البلسم بعد غسل الشعر بالشامبو للمساعدة في ترطيب الشعر، تغذيته، وتسهيل تسريحه. ", benefit: "إصلاح الشعر التالف، إضافة اللمعان، وتقليل التجعد.", size: "150 مل", tag: "normal", skinType: "all", issue: "pigmentation", img: "https://tse3.mm.bing.net/th/id/OIP.7mtEWcPdsroH0VDgLfmuaQHaHa?cb=thfc1falcon2&rs=1&pid=ImgDetMain&o=7&rm=3" },
+            { id: 38, name: "ماسك الشعر بزيت الأرغان", category: "haircare", price: 110, use: "يُستخدم لترطيب الشعر بعمق وتغذيته. زيت الأرغان غني بالأحماض الدهنية وفيتامين E", benefit: "وزيادة لمعان ونعومة الشعر.", size: "200 مل", tag: "normal", skinType: "all", issue: "dryness", img: "https://tse4.mm.bing.net/th/id/OIP.26t1D6jjX96nsL1t4cIhDQHaHa?cb=thfc1falcon2&rs=1&pid=ImgDetMain&o=7&rm=3" },
+            { id: 39, name: "بخاخ شعر سائل بزيت الأرغان ", category: "haircare", price: 85, use: " يعمل على تغذية الشعر، حمايته من أشعة الشمس  وتقليل التقصف", benefit: " تسهيل التصفيف ومنح الشعر لمعانًا", size: "50 مل", tag: "normal", skinType: "all", issue: "pigmentation", img: "https://images.migrosone.com/sanalmarket/product/34346295/34346295-3d4a2b-1650x1650.jpg" },
+
+  { id: 40, name: "منتج عناية بالشعر بزيت المونوي والإيلانغ إيلانغ", category: "haircare", price: 50, use: "  ستخدم عادةً على الشعر الجاف أو المبلل بدون شطف، ليساعد في تقليل الجفاف والتقصف خاصة في فصل الصيف أو عند التعرض للشمس والبحر.", benefit: "ايعمل على ترطيب الشعر وحمايته من أضرار أشعة الشمس بفضل احتوائه على فلتر للأشعة فوق البنفسجية", size: "250 مل", tag: "normal", skinType: "sensitive", issue: "dryness", img: "https://cdn1.ozone.ru/s3/multimedia-1-m/c600/7047818374.jpg" },
+
+{ 
+  id: 41, 
+  name: "واقي شمس La Roche-Posay Anthelios UVMune 400 SPF 50+", 
+  category: "skincare", // أو haircare أو perfume
+  price: 120, // السعر بدون كتابة كلمة شيكل
+  use: "طريقة الاستخدام أو وظيفة المنتج هنا", 
+  benefit: "الفائدة الأساسية للمنتج", 
+  size: "50 مل", 
+  tag: "normal", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "all", // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: "", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+  img: "https://www.bing.com/th/id/OIP.WqeMD3AZ_-1dUeQ0ns8OOQAAAA?w=180&h=171&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" },
+
+ {id: 42, 
+  name: "كريم واقي الشمس بيير كاردان SPF 50+", 
+  category: "skincare", // أو haircare أو perfume
+  price: 70, // السعر بدون كتابة كلمة شيكل
+  use: "حماية قوية ضد الأشعة فوق البنفسجية بالاضافة الى ترطيب البشرة بفضل احتوائه على فيتامين E.", 
+  benefit: "تقليل خطر التصبغات والبقع الداكنة الناتجة عن التعرض للشمس.", 
+  size: "75 مل", 
+  tag: "normal", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "all", // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: "", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+  img: "https://tse4.mm.bing.net/th/id/OIP.Y_o5QkLH84ttUQ3WPgarTwHaIt?cb=thfc1falcon2&pid=ImgDet&w=179&h=210&c=7&dpr=1%D9%AB3&o=7&rm=3" },
+
+{ 
+  id:43, 
+  name: "جل فوتوبلوك SPF 50 يوفر حماية واسعة النطاق من الشمس", 
+  category: "skincare", // أو haircare أو perfume
+  price: 60, // السعر بدون كتابة كلمة شيكل
+  use: "حماية شاملة من الشمس مع الحفاظ على مسام الجلد مفتوحة، والتحكم في إفراز الزيت، ودعم صحة البشرة المعرضة لحب الشباب.", 
+  benefit: "حماية مضادة للأكسدة بالاضافة الى حماية من الشيخوخة المبكرة والتلف الطويل الأمد للبشرة", 
+  size: "100 مل", 
+  tag: "normal", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "oily", // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: "", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+  img: "https://www.bing.com/th/id/OIP.H1fxh4PS9G3YGNE24f7O4gAAAA?w=180&h=180&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" 
+},
+
+{ 
+  id:44, 
+  name: "كريم CC من Topface Natural Glow ", 
+  category: "makeup", // أو haircare أو perfume
+  price: 60, // السعر بدون كتابة كلمة شيكل
+  use: "عامل حماية عالي SPF 50+ PA++++: يوفر حماية قوية من أشعة الشمس الضارة تصحيح لون البشرة يساعد على توحيد لون البشرة وإخفاء التصبغات.", 
+  benefit: "تغطية كاملة يخفي العيوب والبقع والشوائب بشكل فعّال", 
+  size: "30 مل", 
+  tag: "bestseller", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "all", // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: "", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+  img: "https://tse4.mm.bing.net/th/id/OIP.mK0Q7ST2_eqWSXvo_3rA0gAAAA?cb=thfc1falcon2&rs=1&pid=ImgDetMain&o=7&rm=3" 
+},
+
+
+{ 
+  id:45, 
+  name: "منتج لتنظيف البشرة وإزالة المكياج بلطف، خاصة للبشرة الجافة والحساسة ", 
+  category: "makeup", // أو haircare أو perfume
+  price: 30, // السعر بدون كتابة كلمة شيكل
+  use: "ينظف البشرة من الأوساخ والشوائب ويزيل المكياج من الوجه والعينين بلطف", 
+  benefit: "يزيل المكياج والشوائب بشكل فعّال", 
+  size: "250 مل", 
+  tag: "", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "sensitive", // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: "", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+  img: "https://cdn1.costatic.com/img/product/750x1000/5cf8c1924aeb6/laboratoire-acm-sensitelial-p39057.jpg" 
+},
+
+{ 
+  id: 46, 
+  name: "ميسيلار منظف ومنقي للبشرة، مخصص للبشرة المختلطة أو الدهنية", 
+  category: "skincare", // أو haircare أو perfume او bodycare او makeup
+  price: 35, // السعر بدون كتابة كلمة شيكل
+  use: "تنظيف البشرة من الأوساخ والشوائب إزالة المكياج بلطف من الوجه والعينين تنظيم إفراز الدهون الزائدة في البشرة", 
+  benefit: "ينقي المسام ويساعدة في منع ظهور الحبوب", 
+  size: "250 مل", 
+  tag: "normal", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "oily, mixed" , // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: " ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+  img: "https://tse4.mm.bing.net/th/id/OIP.DdLPrbE8XNv_38ToWl1IvAHaLH?cb=thfc1falcon2&rs=1&pid=ImgDetMain&o=7&rm=3" 
+},
+
+{ 
+  id: 47, 
+  name: "محلول ميسيلاري منقي", 
+  category: "skincare", // أو haircare أو perfume او bodycare او makeup
+  price: 35, // السعر بدون كتابة كلمة شيكل
+  use: "يُستخدم لتنظيف البشرة وإزالة الأوساخ والزيوت الزائدة والمكياج بلطف، دون الحاجة للشطف بالماء", 
+  benefit: "ينظف البشرة بعمق ويزيل الشوائب والزيوت الزائدة ولطيف على البشرة لا يسبب جفافًا أو تهيجًا", 
+  size: "250 مل", 
+  tag: "normal", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "oily, mixed" , // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: " ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+  img: "https://www.bing.com/th/id/OIP.101m7jQ4SASeJbBaM3DMaAHaHa?w=180&h=180&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" 
+},
+
+{ 
+  id: 48, 
+  name: "غسول رغوي للوجه لتصحيح البقع الداكنة", 
+  category: "skincare", // أو haircare أو perfume او bodycare او makeup
+  price: 25, // السعر بدون كتابة كلمة شيكل
+  use: "يستخدم لغسل الوجه يوميًا، حيث يعمل على إزالة الشوائب والزيوت الزائدة بلطف، مع المساعدة في تفتيح البشرة وتحسين إشراقتها. مناسب للبشرة العادية إلى الحساسة.", 
+  benefit: "يعمل على تفتيح البشرة وتقليل مظهر البقع الداكنة  ويزيل الشوائب دون التسبب في جفافها.", 
+  size: "150 مل", 
+  tag: "normal", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "sensitive" , // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: " ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+  img: "https://www.bing.com/th/id/OIP.Aw5IqX2dXjzECJDK22kZ4gHaHa?w=180&h=180&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" 
+},
+
+
+
+{ 
+  id: 49, 
+  name: "صابون زيت الزيتون", 
+  category: "skincare", // أو haircare أو perfume او bodycare او makeup
+  price: 25, // السعر بدون كتابة كلمة شيكل
+  use: "يُستخدم هذا الصابون لتنظيف البشرة مع الحفاظ على ترطيبها ونعومتها، ويمكن استخدامه للوجه والجسم. مناسب للاستعمال اليومي.", 
+  benefit: "يحتوي على مسحوق أوراق الزيتون والببتيدات التي تساهم في العناية بالبشرة ومكافحة علامات التقدم في السن", 
+  size: "125 جرام", 
+  tag: "normal", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "all" , // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: " ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+  img: "https://tse2.mm.bing.net/th/id/OIP.JiRie4F1IN5mrKRV3ifPPgHaHa?cb=thfc1falcon2&rs=1&pid=ImgDetMain&o=7&rm=3" 
+},
+
+
+{ 
+  id: 49, 
+  name: "غسول رغوي من CeraVe", 
+  category: "skincare", // أو haircare أو perfume او bodycare او makeup
+  price: 35, // السعر بدون كتابة كلمة شيكل
+  use: "يُستخدم الغسول لتنظيف الوجه من الأوساخ، الزيوت الزائدة، وبقايا المكياج، مع الحفاظ على حاجز البشرة الطبيعي..", 
+  benefit: "يحتوي على سيراميدات تساعد على ترميم حاجز البشرة يحتوي على حمض الهيالورونيك لترطيب البشرة خالٍ من العطور، مما يجعله مناسبًا للبشرة الحساسة ينظف بعمق دون أن يسبب جفافًا مفرطًا", 
+  size: "236 مل", 
+  tag: "normal", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "all" , // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: " ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+  img: "https://www.bing.com/th/id/OIP.CCdnOhs_yEYb8oaaeQlCOQHaJQ?w=180&h=225&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" 
+},
+
+
+{ 
+  id: 50, 
+  name: "كريم هيمالايا لإزالة البقع الداكنة بالكركم", 
+  category: "skincare", // أو haircare أو perfume او bodycare او makeup
+  price: 35, // السعر بدون كتابة كلمة شيكل
+  use: " الكريم مصنوع من مستخلص الكركم المعصور على البارد، والنياسيناميد، وحمض الجليكوليك.", 
+  benefit: "تقليل البقع الداكنة بشكل ملحوظ وزيادة إشراقة البشرة", 
+  size: "150 مل", 
+  tag: "bestseller", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "all" , // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: " ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+  img: "https://himalayawellness.co.za/cdn/shop/files/6291107225982.jpg?v=1708016022&width=1080" 
+},
+
+
+{ 
+  id: 51, 
+  name: "صابونة بالمرز الطبية لمكافحة حب الشباب", 
+  category: "skincare", // أو haircare أو perfume او bodycare او makeup
+  price: 35, // السعر بدون كتابة كلمة شيكل
+  use: " تُستخدم هذه الصابونة لتنظيف البشرة بعمق، إزالة الشوائب، وفتح المسام المسدودة. كما تساعد على التقليل من حب الشباب والبثور بفضل احتوائها على مكونات فعّالة مثل الكبريت (Sulfur) وفيتامين E.", 
+  benefit: "مكافحة حب الشباب وتقليل البثور وفتح المسام ومنع انسدادها", 
+  size: "100جرام ", 
+  tag: " ", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "all" , // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: " ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+  img: "https://timiteandsons.com/14043-large_default/palmer-s-skin-success-anti-acne-medicated-complexion-bar.jpg" 
+},
+
+{ 
+  id: 52, 
+  name: "غسول وجه لإزالة التان من هيمالايا", 
+  category: "skincare", // أو haircare أو perfume او bodycare او makeup
+  price: 45, // السعر بدون كتابة كلمة شيكل
+  use: " يُستخدم لإزالة آثار الاسمرار الناتج عن التعرض للشمس، حيث يساعد على تنظيف البشرة بعمق، وتفتيح لونها، وجعلها أكثر انتعاشًا ونضارة .", 
+  benefit: " يحتوي على خلاصة قشر البرتقال والعسل", 
+  size: "100 مل ", 
+  tag: " ", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "all" , // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: " ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+  img: "https://www.bing.com/th/id/OIP.SWyMmE6KSSCD9k_mDo9inAAAAA?w=180&h=342&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" 
+},
+
+{ 
+  id: 53, 
+  name: "أقراص قطنية للتجميل والعناية بالبشرة", 
+  category: "makeup", // أو haircare أو perfume او bodycare او makeup
+  price: 10, // السعر بدون كتابة كلمة شيكل
+  use: "إزالة المكياج باستخدام مزيل المكياج أو ماء ميسيلار.تنظيف البشرة من الأوساخ والزيوت وضع التونر أو اللوشن على الوجه .العناية بالجروح الصغيرة أو تنظيف الجلد بلطف. هي ناعمة ولطيفة على البشرة، ومناسبة للاستخدام اليومي .", 
+  benefit: " أقراص قطنية دائرية مصنوعة من القطن النقي 100% من ماركة CLEANIC، ويحتوي على 120 قرص.", 
+  size: "120 قطعة ", 
+  tag: " ", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "all" , // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: " ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+  img: "https://www.e-zikoapteka.pl/cleanic-platki-kosmetyczne-pure-effect-soft-touch-80-20-sztuk.2.jpg" 
+},
+
+{ 
+  id: 54, 
+  name: "شفرات حلاقة blade razor", 
+  category: "bodycare", // أو haircare أو perfume او bodycare او makeup
+  price:15, // السعر بدون كتابة كلمة شيكل
+  use: " يوفر ما يصل إلى 20 جلسة حلاقة مريحة و مزودة بشفرات دقيقة لضمان الحصول على جلد نظيف .", 
+  benefit: " مناسب لجميع أنواع  بما فيها البشرة الحساسة.", 
+  size: "5 قطع  ", 
+  tag: " ", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "all" , // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: " ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+  img: "https://ajeeb.net/cdn/shop/products/AJEEB__6_ac43191e-a3ca-48d6-8f9f-2d160af8bbdc_580x.jpg?v=1658047767" 
+},
+
+{ 
+  id: 55, 
+  name: "شفرات فينوس برائحة جوز الهند", 
+  category: "bodycare", // أو haircare أو perfume او bodycare او makeup
+  price:35, // السعر بدون كتابة كلمة شيكل
+  use: "  تتميز بخمس شفرات مغطاة بطبقة تشبه الألماس لحلاقة ناعمة وأشرطة ترطيب بالماء برائحة جوز الهند. .", 
+  benefit: " مناسب لجميع أنواع  بما فيها البشرة الحساسة.", 
+  size: "5 قطع  ", 
+  tag: " ", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "all" , // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: " ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+  img: "https://www.bing.com/th/id/OIP.8tsjTlxSq-VU6srRViShSgAAAA?w=180&h=180&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" 
+},
+
+
+{ 
+  id: 56, 
+  name: "شفرات فينوس برائحة جوز الهند", 
+  category: "bodycare", // أو haircare أو perfume او bodycare او makeup
+  price:35, // السعر بدون كتابة كلمة شيكل
+  use: "  تتميز بخمس شفرات مغطاة بطبقة تشبه الألماس لحلاقة ناعمة وأشرطة ترطيب بالماء برائحة جوز الهند. .", 
+  benefit: " مناسب لجميع أنواع  بما فيها البشرة الحساسة.", 
+  size: "3 قطع  ", 
+  tag: " ", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "all" , // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: " ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+  img: "https://kolboyehuda.co.il/wp-content/uploads/2024/08/1200Wx1200H-00000-7702018587230-001.jpg" 
+},
+
+{ 
+  id: 57, 
+  name: "شفرات حلاقة Gillette Venus Comfortglide Breeze", 
+  category: "bodycare", // أو haircare أو perfume او bodycare او makeup
+  price:35, // السعر بدون كتابة كلمة شيكل
+  use: "ثلاث شفرات لحلاقة ناعمة وفعالة، مما يضمن حلاقة قريبة ودقيقة و شرائح صابون مدمجة تطلق زبدة الجسم، مما ويقلل من الحاجة إلى كريم حلاقة .تصميم مريح للمقبض، مما يسمح بالتحكم الدقيق أثناء الحلاقة قابلية للتعديل  مناسب للبشرة الحساسة، مما يوفر حلاقة لطيفة وفعالة  .", 
+  benefit: " يمكنك الاستمتاع بحلاقة ناعمة ومريحة مع هذه الشفرة.", 
+  size: "3 قطع  ", 
+  tag: " ", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "all" , // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: " ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+  img: "https://www.supermercadoseljamon.com/documents/10180/892067/45045290_M.jpg" 
+},
+
+{ 
+  id: 58, 
+  name: "ماكينة حلاقة كهربائية صغيرة الحجم ", 
+  category: "bodycare", // أو haircare أو perfume او bodycare او makeup
+  price:45, // السعر بدون كتابة كلمة شيكل
+  use: " ازالة الشعر في المناطق الحساسة  .", 
+  benefit: " آمنة على البشرة الحساسة الشفرات مصممة لتقليل التهيج ومقاومة للماء.", 
+  size: "3 قطع  ", 
+  tag: " ", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "all" , // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: " ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+  img: "https://bk.shajgoj.com/storage/2021/09/Gillette-Venus-Sensitive-2-In-1-Bikini-And-Eyebrow-Styler.jpg" 
+},
+
+
+{ 
+  id: 59, 
+  name: "ماكينة حلاقة كهربائية صغيرة الحجم ", 
+  category: "bodycare", // أو haircare أو perfume او bodycare او makeup
+  price:15, // السعر بدون كتابة كلمة شيكل
+  use: " تتميز بأنها ذات تصميم مريح ومغلفة بطبقة بلاتين لتقليل التهيج و شفراتها من الفولاذ المقاوم للصدأ .", 
+  benefit: "إزالة الشعر من الجسم، مثل الساقين، الذراعين، أو منطقة تحت الإبط،.", 
+  size: "6 قطع  ", 
+  tag: " ", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "all" , // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: " ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+  img: "https://img.drz.lazcdn.com/static/pk/p/c8d7e135c5d787dcf0a83b58c300a51f.jpg_720x720q80.jpg" 
+},
+
+{ 
+  id: 60, 
+  name: "شفرات حلاقة مميزة  ", 
+  category: "bodycare", // أو haircare أو perfume او bodycare او makeup
+  price:15, // السعر بدون كتابة كلمة شيكل
+  use: "مقبض مطاطي سهل الإمساك وغير قابل للانزلاق. تحتوي على شفرات مطلية بالسيراميك فائقة الحدة لتوفير حلاقة ناعمة. تتضمن تقنية تنظيف الشفرات عن طريق الضغط على مقبض الشطف.", 
+  benefit: "تمنحك حلاقة ناعمة ومريحة.", 
+  size: "4 قطع  ", 
+  tag: " ", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "all" , // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: " ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+  img: "https://cdn-prd-02.pnp.co.za/sys-master/images/h36/hfe/11187312197662/silo-product-image-v2-01Jun2023-181911-9330344004206-Straight_on-136356-3931_515Wx515H" 
+},
+
+
+{ 
+  id: 61, 
+  name: "شفرات حلاقة  ", 
+  category: "bodycare", // أو haircare أو perfume او bodycare او makeup
+  price:8, // السعر بدون كتابة كلمة شيكل
+  use: "برأس صغير وخفيف الحجم مثالية لحلاقة مريحة ودقيقة .", 
+  benefit: " تحتوي على شريط مرطب بالألوفيرا لتوفير الترطيب .", 
+  size: "3 قطع  ", 
+  tag: " ", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "all" , // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: " ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+  img: "https://www.bing.com/th/id/OIP.Usu2PYWyhYMW1uYuMCgr1QHaKG?w=180&h=245&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" 
+},
+
+
+{ 
+  id: 62, 
+  name: "شفرات حلاقة  ", 
+  category: "bodycare", // أو haircare أو perfume او bodycare او makeup
+  price:12, // السعر بدون كتابة كلمة شيكل
+  use: "يتميز نموذج فينوس ستارت بثلاث شفرات مصممة لتوفير حلاقة ناعمة ويحتوي على شريط تزليق للمساعدة في تقليل التهيج. .", 
+  benefit: " تمنحك حلاقة ناعمة ومريحة .", 
+  size: "4 قطع  ", 
+  tag: " ", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "all" , // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: " ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+  img: "https://tse2.mm.bing.net/th/id/OIP.X5WF7V7TCpHxhQba7qM7GgAAAA?cb=thfc1falcon2&rs=1&pid=ImgDetMain&o=7&rm=3" 
+},
+
+{ 
+  id: 63, 
+  name: " شفرات حلاقة للوجه  ", 
+  category: "bodycare", // أو haircare أو perfume او bodycare او makeup
+  price:12, // السعر بدون كتابة كلمة شيكل
+  use: "دوركو، الخبراء منذ عام 1955 في صناعة شفرات وآلات الحلاقة عالية الجودة بأسعار مناسبة. هذا الموس ذو الشفرة الواحدة يحدد الحواجب بلطف، يزيل الشعيرات الدقيقة، وينعم البشرة. .", 
+  benefit: "لمظهر شبابي ونظيف أكثر .", 
+  size: "3 قطع  ", 
+  tag: " ", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "all" , // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: " ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+  img: "https://tse1.mm.bing.net/th/id/OIP.J9iF-9BSb0iNsBWhihOyzQHaHa?cb=thfc1falcon2&w=720&h=720&rs=1&pid=ImgDetMain&o=7&rm=3" 
+},
+
+{ 
+  id: 63, 
+  name: " شفرات حلاقة   ", 
+  category: "bodycare", // أو haircare أو perfume او bodycare او makeup
+  price:20, // السعر بدون كتابة كلمة شيكل
+  use: "مقبضه متين  لا ينزلق يمنحك سيطرة كاملة وراحة .", 
+  benefit: "لمظهر انعم واجمل  .", 
+  size: "3 قطع  ", 
+  tag: " ", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "all" , // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: " ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+  img: "https://www.bing.com/th/id/OIP.e1ltJV-eE_NVZnOChSkSDwAAAA?w=180&h=180&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" 
+},
+
+
+{ 
+  id: 64, 
+  name: " فرشاة التقشير الجاف   ", 
+  category: "bodycare", // أو haircare أو perfume او bodycare او makeup
+  price:20, // السعر بدون كتابة كلمة شيكل
+  use: "شعيرات خشنة من الألياف الطبيعية لتقشير الجلد. قد يساعد في إزالة خلايا الجلد الميتة، مما يجعل الجلد أكثر نعومة وملمسًا ناعماً .", 
+  benefit: " أكثر نعومة وملمسًا ناعماً  .", 
+  size: "1 قطع  ", 
+  tag: " ", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "all" , // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: " ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+  img: "https://d1flfk77wl2xk4.cloudfront.net/Assets/39/149/XXL_p0214414939.jpg" 
+},
+
+
+{ 
+  id: 65, 
+  name: " ملقط احترافي من Nascita   ", 
+  category: "bodycare", // أو haircare أو perfume او bodycare او makeup
+  price:7, // السعر بدون كتابة كلمة شيكل
+  use: " .", 
+  benefit: "  مصنوع بتصميم مائل الرأس لالتقاط الشعر بسهولة ودقة  .", 
+  size: "1 قطع  ", 
+  tag: " ", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "all" , // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: " ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+  img: "https://static.ticimax.cloud/57498/uploads/urunresimleri/buyuk/nascita-bronz-cimbiz-58-b-4342.jpg" 
+},
+
+
+{ 
+  id: 66, 
+  name: " ماسك ذهبي للتقشير   ", 
+  category: "skincare", // أو haircare أو perfume او bodycare او makeup او skincare
+  price:5, // السعر بدون كتابة كلمة شيكل
+  use: "تنظيف عميق للبشرة: يساعد على إزالة الأوساخ والشوائب من المسام. إزالة الخلايا الميتة: يعمل على تقشير الطبقة السطحية للبشرة، مما يمنحها مظهراً أكثر نعومة إثراء البشرة بالكولاجين: الكولاجين يساعد على تحسين مرونة البشرة وتقليل مظهر الخطوط الدقيقة إشراقة ونضارة: يمنح البشرة مظهراً مشرقاً وصحياً بعد الاستخدام. تحفيز الدورة الدموية: عملية التقشير تساعد على تنشيط تدفق الدم في الوج .", 
+  benefit: "  لبشرة نظيفة ولامعة  .", 
+  size: "1 قطع  ", 
+  tag: " ", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "all" , // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: " ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+  img: "https://cdn11.bigcommerce.com/s-ilgxsy4t82/products/72217/images/168991/125357-_1-1024x1024__05089.1662964088.386.513.jpg?c=1" 
+},
+
+{ 
+  id: 67, 
+  name: "ليفة سالكس اليابانية", 
+  category: "bodycare", // أو haircare أو perfume او bodycare او makeup او skincare
+  price:5, // السعر بدون كتابة كلمة شيكل
+  use: "ليفة سالكس مصنوعة من ألياف نايلون خاصة وتوفر تقشيرًا أفضل بفضل نسيجها الخاص، وتساعد على تنشيط الدورة الدموية .", 
+  benefit: " ودعي الخلايا الميتة  .", 
+  size: "1 قطع  ", 
+  tag: " ", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "all" , // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: " ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+  img: "https://m.media-amazon.com/images/I/81Kd1gGXHyL._AC_SL1500_.jpg" 
+},
+
+{ 
+  id: 68, 
+  name: "مزيل العرق والرائحة ALIN Olympus  ", 
+  category: "perfume", // أو haircare أو perfume او bodycare او makeup او skincare
+  price:15, // السعر بدون كتابة كلمة شيكل
+  use: "مزيل العرق ALIN برائحة Olympus يتميز بعطر منعش وأنيق، يميل إلى الروائح العطرية الفاخرة التي تجمع بين النوتات الخشبية واللمسات الزهرية الخفيفة، مما يمنح إحساسًا بالنظافة والانتعاش طوال اليوم. .", 
+  benefit: " حماية طويلة الأمد ضد الروائح الكريهة.  .", 
+  size: "200 مل   ", 
+  tag: " ", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "all" , // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: " ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+  img: "https://tse1.mm.bing.net/th/id/OIP.wyED0ZenCVGQdGOKIR1yrwHaHa?cb=thfc1falcon2&rs=1&pid=ImgDetMain&o=7&rm=3" 
+},
+
+
+{ 
+  id: 69, 
+  name: "عطر ALIN Si Perfume Splash  ", 
+  category: "perfume", // أو haircare أو perfume او bodycare او makeup او skincare
+  price:20, // السعر بدون كتابة كلمة شيكل
+  use: "رائحته ناعمة وأنثوية، تمزج بين النفحات الزهرية والفواكه الحلوة مع لمسة دافئة من الأخشاب أو الفانيليا في القاعدة. يعطي إحساسًا بالدفء والرقي، ويُعتبر مناسبًا للاستخدام في النهار والمساء على حد سواء .", 
+  benefit: " حماية طويلة الأمد ضد الروائح الكريهة.  .", 
+  size: "150 مل   ", 
+  tag: " ", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "all" , // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: " ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+  img: "https://tse4.mm.bing.net/th/id/OIP.z1769g7cr-ZuXozjfQ4B6AHaHa?cb=thfc1falcon2&rs=1&pid=ImgDetMain&o=7&rm=3" 
+},
+
+
+{ 
+  id: 70, 
+  name: "مزيل عرق ALIN Paradise ", 
+  category: "perfume", // أو haircare أو perfume او bodycare او makeup او skincare
+  price:15, // السعر بدون كتابة كلمة شيكل
+  use: "رائحته عطرية ومنعشة، مستوحاة من أجواء الفواكه أو الأزهار أو الروائح الاستوائية .", 
+  benefit: " حماية طويلة الأمد ضد الروائح الكريهة.  .", 
+  size: "200 مل   ", 
+  tag: " ", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "all" , // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: " ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+  img: "https://tse3.mm.bing.net/th/id/OIP.CGXA0wA8fH3yM5bRvHQ-nwHaHa?cb=thfc1falcon2&w=2560&h=2560&rs=1&pid=ImgDetMain&o=7&rm=3" 
+},
+
+
+{ 
+  id: 71, 
+  name: "غسول للعناية الشخصية ", 
+  category: "perfume", // أو haircare أو perfume او bodycare او makeup او skincare
+  price:40, // السعر بدون كتابة كلمة شيكل
+  use: "مخصص لتنظيف المنطقة الحساسة و يساعد في الحفاظ على النظافة الشخصية والتقليل من الروائح غير المرغوبة  ", 
+  benefit: "  ", 
+  size: "150 مل   ", 
+  tag: " ", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "all" , // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: " ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+  img: "https://down-th.img.susercontent.com/file/th-11134207-7qul9-ljefdsi7l5zl3e" 
+},
+
+
+
+
+
+
         ];
 
         // مصفوفة عناصر سلة التسوق الحالية
@@ -916,6 +1421,7 @@
                 if(recGrid) recGrid.innerHTML = gridHTML;
                 if(recSection) recSection.style.display = 'block';
                 
+
                 // التمرير السلس نحو قسم المنتجات الموصى بها لرؤيتها فوراً
                 recSection.scrollIntoView({ behavior: 'smooth' });
             } else {
@@ -1083,6 +1589,7 @@
             }
         }
 
+
         // وظائف نافذة اللايت بوكس لتكبير صور المنتجات عند النقر بجمالية فائقة
         function openLightbox(src) {
             const lb = document.getElementById('imageLightbox');
@@ -1104,6 +1611,8 @@
                 if(list) list.style.display = 'none';
             }
         });
+
+
     </script>
 </body>
 </html>
