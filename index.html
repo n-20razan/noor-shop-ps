@@ -40,8 +40,8 @@
 
         /* تنسيق شريط الدعاء الإيماني أعلى الصفحة */
         .top-blessing {
-            background-color: var(--text-dark);
-            color: var(--primary-color);
+            background-color: ;
+            color:s #2A3B37; 
             text-align: center;
             padding: 8px 10px;
             font-size: 0.95rem;
@@ -68,8 +68,8 @@
 
         /* تنسيق اسم المتجر الرئيسي */
         .brand-name {
-            font-size: 1.8rem;
-            font-weight: 800;
+            font-size: 1.5rem;
+            font-weight: 600;
             color: var(--text-dark);
             text-decoration: none;
         }
@@ -465,10 +465,10 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 15px;
-            padding-bottom: 10px;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
             border-bottom: 1px solid #eee;
-            gap: 10px;
+            gap: 5px;
         }
 
         .cart-item-details {
@@ -481,7 +481,7 @@
             border: none;
             color: red;
             cursor: pointer;
-            font-size: 1.1rem;
+            font-size: 0.5rem;
         }
 
         /* نافذة اللايت بوكس لتكبير صور المنتجات عند النقر */
@@ -716,7 +716,6 @@
 
     <div class="image-matched-spiritual-card">
         <p class="main-prayer">🙌 اللهم اجعل لي من اسمك النور نوراً يضيء بشرتي وجسدي... اللهم ضاعف لي جمالي وجاذبيتي.. رددي اسم الله "الخالق البديع" 🙌</p>
-        <p>ربى ضاعف لى جمالى وجاذبيتى وإكرمنى بجمال القدر وجمال الحظ وجمال العقل وجمال القلب وجمال الحضور وجمال القول وجمال الفعل وجمال المنظر الذى يجعل كل من يرانى يذكر الله</p>
     </div>
 
     <footer class="image-matched-footer">
@@ -746,19 +745,22 @@
             { id: 13, name: "واقي شمس كالييل الخفي الشفاف تماماً (Unseen)", category: "skincare", price: 120, use: "قوام جل شفاف خفيف للغاية يمتص فوراً، مثالي كأساس ومثبت للمكياج", benefit: "مظهر غير لامع ومخملي ساحر", size: "50 مل", tag: "bestseller", skinType: "mixed", issue: "all", img: "https://calliel.com.tr/cdn/shop/files/Unseen-Sunscreen1_399c1740-8227-4753-b0c9-0e5d0095b440.jpg?v=1767690364&width=848" },
 
             // 14-19 منتجات هيلو بيوتي سكواد (Hello Beauty Squad)
-            { id: 14, name: "تونر هيلو بيوتي سكواد بالأزيليك أسيد المفتح للنضارة", category: "skincare", price: 95, use: "تخفيف احمرار البشرة، إضاءة فلاتر الوجه الباهت وتفتيح مظهر العيوب", benefit: "إشراقة ونقاء فوري للبشرة", size: "150 مل", tag: "normal", skinType: "sensitive", issue: "pigmentation", img: "https://hellobeautysquad.com/cdn/shop/files/LighteninginaBottleFront.jpg?v=1725519888&width=800" },
-            { id: 15, name: "سيروم هيلو بيوتي سكواد بالساليسيليك أسيد المضاد للتلوث", category: "skincare", price: 115, use: "تقشير المسام ومقاومة تأثير العوامل البيئية الضارة المسببة للحبوب والأوساخ", benefit: "حماية متكاملة ومقاومة للرؤوس السوداء", size: "30 مل", tag: "normal", skinType: "oily", issue: "acne", img: "https://hellobeautysquad.com/cdn/shop/files/Ex-foliateYourX2Front.jpg?v=1725520448&width=800" },
-            { id: 16, name: "كريم هيلو بيوتي سكواد بالببتيد الفعّال لترطيب النهار والليل", category: "skincare", price: 130, use: "محاربة الخطوط الرفيعة والتجاعيد المبكرة، وشد البشرة ببروتينات الببتيد", benefit: "بشرة شابة، ممتلئة وأكثر مرونة", size: "50 مل", tag: "normal", skinType: "all", issue: "wrinkles", img: "https://hellobeautysquad.com/cdn/shop/files/AlldayAllnightFront.jpg?v=1725521257&width=800" },
-            { id: 17, name: "سيروم هيلو بيوتي سكواد هيالورونيك أسيد 8D للنضارة والتوهج", category: "skincare", price: 120, use: "ترطيب فائق بثمانية أبعاد يخترق طبقات الجلد ليعيد الحيوية للجفاف", benefit: "توهج مائي طبيعي ونعومة مثالية", size: "30 مل", tag: "normal", skinType: "dry", issue: "dryness", img: "https://hellobeautysquad.com/cdn/shop/files/UnicornTearsFront.jpg?v=1725521074&width=800" },
-            { id: 18, name: "غسول الجيلي المنظف واللطيف من هيلو بيوتي سكواد", category: "skincare", price: 90, use: "تنظيف متوازن يزيل الأوساخ والمكياج بلطف تام مع الحفاظ على ترطيب البشرة", benefit: "انتعاش مريح دون شد أو جفاف", size: "150 مل", tag: "normal", skinType: "sensitive", issue: "all", img: "https://hellobeautysquad.com/cdn/shop/files/CleanYourPastFront.jpg?v=1725518928&width=800" },
-            { id: 19, name: "مقشر الإنزيمات الأزرق هيلو بيوتي سكواد (Blue Moon)", category: "skincare", price: 120, use: "تقشير إنزيمي ناعم وخارق لتجديد نسيج البشرة وإعادة النضارة وتفتيح المسام", benefit: "مظهر مخملي ناصع البياض والنقاء", size: "50 جم", tag: "normal", skinType: "all", issue: "pigmentation", img: "https://hellobeautysquad.com/cdn/shop/files/BlueMoonDustFront.jpg?v=1725520101&width=800" },
+            { id: 14, name: "كريم هيمالايا المغذي للبشرة", category: "skincare", price: 95, use: "هذا الكريم مخصص لترطيب وتغذية البشرة، حيث يحتوي على مكونات طبيعية تساعد على الحفاظ على نعومة الجلد وحمايته من الجفاف", benefit: "إشراقة ونقاء فوري", size: "150 مل", tag: "normal", skinType: "sensitive", issue: "pigmentation", img: "https://www.bing.com/th/id/OIP.kwNbc-AV610oTmM-s4a80gHaHa?w=180&h=180&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" },
+
+            { id: 15, name: " واقي الشمس YC Sun Screen SPF 50 PA+", category: "skincare", price: 115, use: " يوفر حماية قوية ضد الأشعة فوق البنفسجية UVB المسببة لحروق الشمس، وPA+ للحماية من الأشعة UVA التي تسبب الشيخوخة المبكرة للبشرة", benefit: " قوام خفيف وسريع الامتصاص ومناسب لجميع أنواع البشرة", size: "30 مل", tag: "normal", skinType: "oily", issue: "acne", img: "https://www.bing.com/th/id/OIP.DYpYii1Lzfi6e7NnSVHJUQHaHa?w=180&h=180&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" },
+            { id: 16, name: "زبدة البطن من بالمرز لعلاج علامات التمدد", category: "skincare", price: 130, use: "مصمم خصيصًا للمساعدة في تحسين مرونة الجلد وتقليل مظهر علامات التمدد ، خاصة أثناء الحمل أو عند تغيّر الوزن", benefit: "ترطيب عميق وتغذية البشرة.", size: "50 مل", tag: "normal", skinType: "all", issue: "wrinkles", img: "https://www.bing.com/th/id/OIP.H8Cmk89KwAvIkXP8wFTX7AAAAA?w=180&h=248&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" },
+            { id: 17, name: "كريم بالمرز بزبدة الكاكاو لمنطقة الصدر", category: "skincare", price: 120, use: " كريم مخصص للعناية بالبشرة في منطقة الصدر، يحتوي على زبدة الكاكاو وفيتامين E بالإضافة إلى الكولاجين والإيلاستين وزبدة الشيا.", benefit: "ترطيب وشد طبيعي ونعومة مثالية", size: "30 مل", tag: "normal", skinType: "dry", issue: "dryness", img: "https://thfvnext.bing.com/th/id/OIP.uS9BGTuT7iFLdoh0-ByaGwHaHa?w=219&h=219&c=7&r=0&o=7&cb=thfvnextfalcon2&dpr=1.3&pid=1.7&rm=3" },
+            { id: 18, name: "غسول الجيلي المنظف واللطيف من هيلو بيوتي سكواد", category: "skincare", price: 90, use: "تنظيف متوازن يزيل الأوساخ والمكياج بلطف تام مع الحفاظ على ترطيب البشرة", benefit: "انتعاش مريح دون شد أو جفاف", size: "150 مل", tag: "normal", skinType: "sensitive", issue: "all", img: "https://tse1.mm.bing.net/th/id/OIP.30z6NOh2Lz1365IKRKbdpwHaJ4?cb=thfvnextfalcon2&rs=1&pid=ImgDetMain&o=7&rm=3" },
+            { id: 19, name: "مقشر الإنزيمات الأزرق هيلو بيوتي سكواد (Blue Moon)", category: "skincare", price: 120, use: "تقشير إنزيمي ناعم وخارق لتجديد نسيج البشرة وإعادة النضارة وتفتيح المسام", benefit: "مظهر مخملي ناصع البياض والنقاء", size: "50 جم", tag: "normal", skinType: "all", issue: "pigmentation", img: "https://hellobeautysquad.com/en/products/blue-moon-dust-enzyme-peeling" },
 
             // 20-25 منتجات سكين ماستر (Skinmaster) - تم دمجها ومنع التكرار
             { id: 20, name: "سيروم سكين ماستر أربوتين ونياكيناميد للتفتيح المزدوج", category: "skincare", price: 135, use: "علاج التصبغات، إزالة آثار الحبوب المستعصية، مضاف إليه حمض الجليكوليك", benefit: "توحيد جبار للون وإشراقة وردية", size: "20 مل", tag: "bestseller", skinType: "all", issue: "pigmentation", img: "https://cdn.dsmcdn.com/ty1580/prod/QC/20241005/21/54214c60-ee10-3ba4-b459-7bfc5516a3c6/1_org_zoom.jpg" },
-            { id: 21, name: "سيروم سكين ماستر بمستخلص الجينسينغ 5% ونياكيناميد", category: "skincare", price: 140, use: "تجديد وإنعاش خلايا الجلد، محاربة علامات الإرهاق والتقدم في السن والخطوط", benefit: "بشرة شابة مشدودة ونضرة جداً", size: "30 مل", tag: "normal", skinType: "all", issue: "wrinkles", img: "https://tse1.mm.bing.net/th/id/OIP.GIYEsHQXId7xzZhfI_6sLAHaHa?cb=thfc1falcon2&w=500&h=500&rs=1&pid=ImgDetMain&o=7&rm=3" },
-            { id: 22, name: "سيروم سكين ماستر فيتامين سي لتوحيد لون البشرة", category: "skincare", price: 130, use: "مضاد أكسدة قوي ومشرق للوجه، يحتوي على نياكيناميد وحمض الهيالورونيك", benefit: "إضاءة ونضارة ومكافحة بهتان الجلد", size: "20 مل", tag: "normal", skinType: "all", issue: "pigmentation", img: "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-loth224c36kr7c" },
-            { id: 23, name: "سيروم سكين ماستر بالأزيليك أسيد 5% للبشرة الحساسة", category: "skincare", price: 125, use: "مضاد للالتهابات والاحمرار ومكافح رائع لآثار البثور للبشرة الحساسة", benefit: "تهدئة تامة وبشرة صافية بلا حبوب", size: "30 مل", tag: "normal", skinType: "sensitive", issue: "acne", img: "https://http2.mlstatic.com/D_NQ_NP_831930-MLU73338608204_122023-O.webp" },
-            { id: 24, name: "واقي شمس سكين ماستر الترطيبي وإصلاح الحاجز SPF 50", category: "skincare", price: 115, use: "حماية متعددة الوظائف مع فلاتر جيل جديد مرطبة ومقوية لحاجز البشرة", benefit: "ترطيب ممتد وحماية لا مثيل لها", size: "50 مل", tag: "normal", skinType: "all", issue: "dryness", img: "https://tse1.mm.bing.net/th/id/OIP.dOpzyfLbpXIgbEY8gLVgkgHaHa?cb=thfc1falcon2&w=1200&h=1200&rs=1&pid=ImgDetMain&o=7&rm=3" },
+            { id: 21, name: "لوشن ترطيب وتفتيح للجسم", category: "skincare", price: 140, use: " رائحة عطرية منعشة تدوم لفترة طويلة", benefit: "بشرة شابة مشدودة ونضرة جداً", size: "30 مل", tag: "normal", skinType: "all", issue: "wrinkles", img: "https://tse1.mm.bing.net/th/id/OIP.GIYEsHQXId7xzZhfI_6sLAHaHa?cb=thfc1falcon2&w=500&h=500&rs=1&pid=ImgDetMain&o=7&rm=3" },
+            { id: 22, name: "غسول لعلاج حب الشباب", category: "skincare", price: 130, use: "مضاد أكسدة قوي ومشرق للوجه، يحتوي على نياكيناميد وحمض الهيالورونيك", benefit: "إضاءة ونضارة ومكافحة بهتان الجلد", size: "20 مل", tag: "normal", skinType: "all", issue: "pigmentation", img: "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-loth224c36kr7c" },
+
+            { id: 23, name: "لوشن الجسم من بالمرز برائحة زهرة الزنبق المائي", category: "skincare", price: 125, use: "يحتوي على مكونات طبيعية مثل زهرة الزنبق المائي، فيتامين E، ومستخلص الفطر الأبيض", benefit: "يساعد على توحيد لون البشرة ومنحها مظهراً متألقاً ومتوازناً", size: "30 مل", tag: "normal", skinType: "sensitive", issue: "acne", img: "https://http2.mlstatic.com/D_NQ_NP_831930-MLU73338608204_122023-O.webp" },
+            { id: 24, name: "لوشن تفتيح وتوحيد لون البشرة ", category: "skincare", price: 115, use: "  يحتوي على فيتامين E و5% نياسيناميد، وخالٍ من الهيدروكينون", benefit: "استهداف البقع الداكنة وتوحيد لون البشرة", size: "50 مل", tag: "normal", skinType: "all", issue: "dryness", img: "https://tse1.mm.bing.net/th/id/OIP.dOpzyfLbpXIgbEY8gLVgkgHaHa?cb=thfc1falcon2&w=1200&h=1200&rs=1&pid=ImgDetMain&o=7&rm=3" },
+
             { id: 25, name: "سيروم سكين ماستر BHA لتضييق المسام وإزالة الرؤوس السوداء", category: "skincare", price: 130, use: "منع تشكل الأكني والرؤوس المزعجة بمساعدة النياكيناميد والـ BHA", benefit: "مسام ضيقة ومظهر نقي ناعم", size: "30 مل", tag: "normal", skinType: "oily", issue: "acne", img: "https://flavus.com/cdn/shop/files/skinmaster-gozenek-sikilastirici-siyah-nokta-ve-akne-olusumunu-gidermeye-yardimci-bakim-serumu-bha-b3-ha-8683434733045-659808_grande.jpg?v=1711058222" },
 
             // 26-28 العناية بالجسم والمنظفات الطبية الأخرى
@@ -770,17 +772,19 @@
             { id: 29, name: "شامبو هيمالايا العشبي لإصلاح الشعر الجاف والتالف", category: "haircare", price: 40, use: "تغذية عميقة للشعر المتعب والمتقصف بمستخلصات البروتين الطبيعية ليعيد الحيوية", benefit: "شعر رطب، قوي ولامع من الجذور", size: "400 مل", tag: "normal", skinType: "all", issue: "all", img: "https://img02.zdravnitza.com/6249-home_default/shampoan-za-suha-i-iztoshtena-kosa-himalaya-400-ml.jpg" },
             { id: 30, name: "شامبو هيمالايا لتكثيف الشعر وزيادة حيوية وحجم الخصلات", category: "haircare", price: 40, use: "يعطي كثافة ومظهر ممتلئ وصحي للشعر الخفيف والناعم بدون إثقال خصلاتك", benefit: "شعر كثيف، حيوي وذو مظهر جذاب", size: "400 مل", tag: "normal", skinType: "all", issue: "all", img: "https://himalayawellness.eu/cdn/shop/files/Volume-_-Thickness-Shampoo-Front.jpg?v=1708496043&width=1080" },
             { id: 31, name: "شامبو هيمالايا النعومة واللمعان الفائق للشعر الباهت", category: "haircare", price: 40, use: "ينعم ألياف الشعر الخشن والمتطاير، ويضفي لمعاناً كريستالياً ساحراً", benefit: "انسيابية فائقة وملمس حريري", size: "400 مل", tag: "normal", skinType: "all", issue: "all", img: "https://himalayawellness.my/cdn/shop/products/Shampoo-Softness-_-Shine-400ml.png?v=1653544638&width=1080" },
-            { id: 32, name: "بلسم وكريم أوربان كير السائل بزيت الأرغان لإصلاح الشعر", category: "haircare", price: 85, use: "بخاخ سائل يفك تشابك الخصلات فوراً ويحمي من حرارة السشوار والتقصف", benefit: "نعومة فورية ولمعان طبيعي خلاب", size: "200 مل", tag: "bestseller", skinType: "all", issue: "all", img: "https://www.ogempharma.com/uploads/urunler/urban-care-argan-oil-sivi-sac-bakim-kremi-200-ml-5570.jpg" },
+            { id: 32, name: "بخاخ عناية سائل للشعر بالكيراتين", category: "haircare", price: 85, use: "بخاخ سائل يفك تشابك الخصلات فوراً و مناسب للشعر الجاف أو المتضرر من الصبغات والسشوار", benefit: "نعومة فورية ولمعان طبيعي خلاب", size: "200 مل", tag: "bestseller", skinType: "all", issue: "all", img: "https://www.ogempharma.com/uploads/urunler/urban-care-argan-oil-sivi-sac-bakim-kremi-200-ml-5570.jpg" },
             { id: 33, name: "ماسك فانوﻻ (Fanola Smooth Care) الاحترافي لتمليس وفرد الشعر", category: "haircare", price: 120, use: "قناع صالونات غني بقطرات القطن، يسهل فرد الشعر المجعد ويقضي على النفشة تماماً", benefit: "نعومة فائقة وتمليس يدوم طويلاً", size: "500 مل", tag: "bestseller", skinType: "all", issue: "all", img: "https://www.esteto.bg/static/images/produse/77795/maska-za-izpravyane-na-kosata-fanola-smooth-care-straightening-mask-500ml-1.jpg" },
-            { id: 34, name: "شامبو إيريس (Eriis) الإيطالي المطور والمقوي لخصلات شعر النساء", category: "haircare", price: 110, use: "شامبو علاجي متطور يغذي بصيلات الشعر ويحارب التساقط الموسمي ويعيد بناء الفروة", benefit: "شعر قوي وسميك ومقاوم للتساقط", size: "200 مل", tag: "normal", skinType: "all", issue: "all", img: "https://th.bing.com/th/id/R.882e305ca8af069555f1fe73790f6846?rik=rCLNILbgZgjFpA&riu=http%3a%2f%2fwww.i-health.ae%2fcdn%2fshop%2fproducts%2fEriis-Repairing-Energizing-Shampoo-Women.jpg%3fv%3d1590051610&ehk=1pqoQMD3wshCI%2f8NFll8mclryNfp%2fA5Ffe%2fQtpKGQps%3d&risl=&pid=ImgRaw&r=0" },
+            { id: 34, name: "شامبو إيريس (Eriis) الإيطالي المطور والمقوي لخصلات الشعر ", category: "haircare", price: 110, use: "شامبو علاجي متطور يغذي بصيلات الشعر ويحارب التساقط الموسمي ويعيد بناء الفروة", benefit: "شعر قوي وسميك ومقاوم للتساقط", size: "200 مل", tag: "normal", skinType: "all", issue: "all", img: "https://th.bing.com/th/id/R.882e305ca8af069555f1fe73790f6846?rik=rCLNILbgZgjFpA&riu=http%3a%2f%2fwww.i-health.ae%2fcdn%2fshop%2fproducts%2fEriis-Repairing-Energizing-Shampoo-Women.jpg%3fv%3d1590051610&ehk=1pqoQMD3wshCI%2f8NFll8mclryNfp%2fA5Ffe%2fQtpKGQps%3d&risl=&pid=ImgRaw&r=0" },
 
             // 35-40 المنتجات الجمالية الفخمة والمكملة من بقية روابطك
             { id: 35, name: "معطر وبودي ميست مون لينجري (Moon Lingerie) المثير للجسم", category: "perfume", price: 95, use: "رذاذ عطري فاخر وثابت للجسم يجمع بين النوتات الزهرية والمسك الدافئ الأنيق", benefit: "رائحة ساحرة وجاذبية تدوم طوال اليوم", size: "250 مل", tag: "bestseller", skinType: "all", issue: "all", img: "https://moon-lingerie.com/wp-content/uploads/2024/03/35-1.jpg" },
-            { id: 36, name: "كريم الترطيب والتفتيح الفاخر والملكي بمستخلصات الشرق الطبيعية", category: "perfume", price: 90, use: "عناية ملكية للوجه والمناطق الجافة، تعزز الإشراق الطبيعي وتخفي العيوب والبهتان", benefit: "توهج دائم وملمس مخملي رائع", size: "100 مل", tag: "normal", skinType: "all", issue: "pigmentation", img: "https://tse3.mm.bing.net/th/id/OIP.5mUx1W04XyJ8CUloaidsDgHaLH?cb=thfc1falcon2&w=592&h=889&rs=1&pid=ImgDetMain&o=7&rm=3" },
-            { id: 37, name: "منظف البشرة اليومي المتكامل بخلاصة الودع لتصفية مذهلة للوجه", category: "skincare", price: 80, use: "غسول كريمي تراثي مطور يعمل على جرف الخلايا الميتة وتفتيح البقع الداكنة", benefit: "بشرة ناصعة البياض خالية من الشوائب", size: "150 مل", tag: "normal", skinType: "all", issue: "pigmentation", img: "https://tse3.mm.bing.net/th/id/OIP.7mtEWcPdsroH0VDgLfmuaQHaHa?cb=thfc1falcon2&rs=1&pid=ImgDetMain&o=7&rm=3" },
-            { id: 38, name: "كريم الجسم المعطر الفاخر بزيت العود والورد لتنعيم فائق", category: "perfume", price: 110, use: "مزيج فاخر من زبدة الشيا والزيوت العطرية لتعطير دائم وترطيب يمتد 24 ساعة", benefit: "نعومة كالحرير ورائحة شرقية تأسر القلوب", size: "200 مل", tag: "normal", skinType: "all", issue: "dryness", img: "https://tse4.mm.bing.net/th/id/OIP.26t1D6jjX96nsL1t4cIhDQHaHa?cb=thfc1falcon2&rs=1&pid=ImgDetMain&o=7&rm=3" },
-            { id: 39, name: "سيروم تفتيح اليدين والمفاصل المركز وإزالة اسمرار العقل", category: "perfume", price: 85, use: "تركيبة غنية بأحماض الفواكه وفيتامين ب3 للتخلص التام من اسمرار مفاصل اليدين", benefit: "يدين موحدة اللون وناعمة كالأطفال", size: "50 مل", tag: "normal", skinType: "all", issue: "pigmentation", img: "https://images.migrosone.com/sanalmarket/product/34346295/34346295-3d4a2b-1650x1650.jpg" },
-            { id: 40, name: "جيل الصبار الطبيعي 99% المهدئ الفوري للبشرة والشعر", category: "skincare", price: 50, use: "ترطيب فوري بعد إزالة الشعر أو التعرض للشمس، يهدئ الاحمرار والتحسس بلمحة", benefit: "انتعاش بارد وراحة تامة للبشرة المتهجية", size: "250 مل", tag: "normal", skinType: "sensitive", issue: "dryness", img: "https://cdn1.ozone.ru/s3/multimedia-1-m/c600/7047818374.jpg" }
+
+            { id: 36, name: " بخاخ شعر سائل (Leave-in) يحتوي على حمض الهيالورونيك والكولاجين،", category: "perfume", price: 90, use: "يساهم في تعزيز مرونة وقوة الشعر و يساعد على الاحتفاظ بالرطوبة داخل الشعر و يجعل الشعر أكثر نعومة ويسهّل تمشيطه", benefit: "  ترطيب الشعر تقوية الشعر حماية من أشعة الشمس تسهيل التصفيف", size: "100 مل", tag: "normal", skinType: "all", issue: "pigmentation", img: "https://tse3.mm.bing.net/th/id/OIP.5mUx1W04XyJ8CUloaidsDgHaLH?cb=thfc1falcon2&w=592&h=889&rs=1&pid=ImgDetMain&o=7&rm=3" },
+            { id: 37, name: "بلسم شعر بزيت الأرغان", category: "skincare", price: 80, use: "يُستخدم هذا البلسم بعد غسل الشعر بالشامبو للمساعدة في ترطيب الشعر، تغذيته، وتسهيل تسريحه. ", benefit: "إصلاح الشعر التالف، إضافة اللمعان، وتقليل التجعد.", size: "150 مل", tag: "normal", skinType: "all", issue: "pigmentation", img: "https://tse3.mm.bing.net/th/id/OIP.7mtEWcPdsroH0VDgLfmuaQHaHa?cb=thfc1falcon2&rs=1&pid=ImgDetMain&o=7&rm=3" },
+            { id: 38, name: "ماسك الشعر بزيت الأرغان", category: "perfume", price: 110, use: "يُستخدم لترطيب الشعر بعمق وتغذيته. زيت الأرغان غني بالأحماض الدهنية وفيتامين E", benefit: "وزيادة لمعان ونعومة الشعر.", size: "200 مل", tag: "normal", skinType: "all", issue: "dryness", img: "https://tse4.mm.bing.net/th/id/OIP.26t1D6jjX96nsL1t4cIhDQHaHa?cb=thfc1falcon2&rs=1&pid=ImgDetMain&o=7&rm=3" },
+            { id: 39, name: "بخاخ شعر سائل بزيت الأرغان ", category: "perfume", price: 85, use: " يعمل على تغذية الشعر، حمايته من أشعة الشمس  وتقليل التقصف", benefit: " تسهيل التصفيف ومنح الشعر لمعانًا", size: "50 مل", tag: "normal", skinType: "all", issue: "pigmentation", img: "https://images.migrosone.com/sanalmarket/product/34346295/34346295-3d4a2b-1650x1650.jpg" },
+
+            { id: 40, name: "منتج عناية بالشعر بزيت المونوي والإيلانغ إيلانغ", category: "skincare", price: 50, use: "  ستخدم عادةً على الشعر الجاف أو المبلل بدون شطف، ليساعد في تقليل الجفاف والتقصف خاصة في فصل الصيف أو عند التعرض للشمس والبحر.", benefit: "ايعمل على ترطيب الشعر وحمايته من أضرار أشعة الشمس بفضل احتوائه على فلتر للأشعة فوق البنفسجية", size: "250 مل", tag: "normal", skinType: "sensitive", issue: "dryness", img: "https://cdn1.ozone.ru/s3/multimedia-1-m/c600/7047818374.jpg" }
         ];
 
         // مصفوفة عناصر سلة التسوق الحالية
