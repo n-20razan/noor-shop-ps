@@ -2,14 +2,14 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>noor store - منتجات العناية والجمال</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">    
+<title>noor store - منتجات العناية والجمال</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 
     <style>
         /* تعريف متغيرات الألوان الثابتة لتسهيل التحكم بهوية الموقع البصرية */
@@ -66,13 +66,27 @@
             gap: 20px;
         }
 
-        /* تنسيق اسم المتجر الرئيسي */
-        .brand-name {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--text-dark);
-            text-decoration: none;
-        }
+     /* تنسيق اسم المتجر الرئيسي المطور مع الحفاظ على الهوية البصرية */
+.brand-name {
+    display: flex !important;
+    flex-direction: column;    /* يضمن بقاء اللوجو فوق الاسم */
+    align-items: center;       /* توسيط اللوجو والنص */
+    gap: 5px;                  /* مسافة صغيرة بين اللوجو والنص */
+    text-decoration: none !important; /* يمنع ظهور أي خط تحت الاسم */
+    
+    /* 🌟 هنا أعدنا التنسيقات الفخمة التي اختفت 🌟 */
+    font-size: 0 rem;         /* الحجم الأصلي المناسب */
+    font-weight: 0;          /* سمك الخط الأصلي */
+    color: #7bc4b9 !important; /* يعيد اللون الزيتي الداكن المعتمد في موقعكِ بدلاً من البنفسجي */
+}
+
+
+/* تنسيق حجم اللوجو (الصورة) */
+.logo-img {
+    width: 150px;               /* حجم مثالي متناسق مع الخط */
+    height: auto;
+    object-fit: contain;
+}
 
         /* صندوق غلاف حقل البحث */
         .search-wrapper {
@@ -304,8 +318,7 @@
             border: none;
             background: transparent;
             font-weight: 700;
-            font-size: 0.9rem;
-        }
+font-size: 16px !important; /* تجعل الخط 16 بكسل وهو الحجم القياسي الذي يمنع الزوم */        }
 
         /* معلومات السعر والحجم */
         .product-meta {
@@ -426,20 +439,24 @@
             outline: none;
         }
 
-        /* درج سلة المشتريات الجانبي الشريطي */
-        .cart-drawer {
-            position: fixed;
-            top: 0; bottom: 0; left: -400px;
-            width: 100%;
-            max-width: 400px;
-            background: var(--white);
-            box-shadow: 5px 0 15px rgba(0,0,0,0.1);
-            z-index: 1005;
-            transition: left 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            padding: 20px;
-        }
+       /* درج سلة المشتريات الجانبي الشريطي */
+.cart-drawer {
+    position: fixed;
+    top: 0; bottom: 0; left: -400px;
+    width: 100%;
+    max-width: 400px;
+    background: var(--white);
+    box-shadow: 5px 0 15px rgba(0,0,0,0.1);
+    z-index: 1005;
+    transition: left 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    
+    /*   لإظهار شريط التمرير للسلة بالكامل  */
+    box-sizing: border-box; 
+    overflow-y: auto;       /* يضيف شريط تمرير من أول الخانة لآخرها ويمنع اختفاء أي معلومات بالأسفل */
+}
 
         .cart-drawer.active {
             left: 0;
@@ -534,6 +551,75 @@
             font-size: 0.92rem;
             font-weight: 600;
         }
+
+/* تنسيق صندوق التحويل البنكي */
+.bank-details-container {
+    background-color: #f4fbf9; /* لون أخضر خفيف جداً ومريح */
+    border: 1px solid #cceadd;
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: 15px;
+    direction: rtl;
+    animation: fadeIn 0.3s ease-in-out; /* حركة دخول ناعمة */
+}
+
+.bank-details-container h4 {
+    color: #1e4631;
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-size: 1.05rem;
+}
+
+.account-info {
+    background: #ffffff;
+    padding: 10px;
+    border-radius: 6px;
+    border-right: 4px solid #52b788; /* خط جانبي ملون لترتيب الشكل */
+}
+
+.bank-details-container ul {
+    list-style: none;
+    padding: 0;
+    margin: 5px 0 0 0;
+}
+
+.bank-details-container li {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    color: #444;
+}
+
+/* صندوق التنبيه الأصفر للخطوة المهمة */
+.bank-alert-note {
+    background-color: #fff3cd;
+    border-right: 4px solid #ffc107;
+    color: #664d03;
+    padding: 10px;
+    margin-top: 12px;
+    border-radius: 6px;
+    font-size: 0.88rem;
+    line-height: 1.5;
+}
+
+/* حركة تظهر الصندوق بشكل سلس */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* 📱 تنسيق ذكي للموبايل يمنع اسم المتجر من الانقسام */
+@media (max-width: 768px) {
+    .brand-name {
+        white-space: nowrap !important; /* يمنع كلمات الاسم من الانفصال والنزول لسطر جديد */
+        font-size: 1.2rem !important;   /* تصغير الخط قليلاً ليناسب شاشة الهاتف بجانب الأيقونات */
+    }
+    
+    /* تعديل اختياري لضمان مرونة الهيدر بالكامل في المساحات الضيقة */
+    .header-container {
+        gap: 10px !important; 
+    }
+}
+
     </style>
 </head>
 <body>
@@ -544,8 +630,9 @@
 
     <header>
         <div class="header-container">
-            <a href="#" class="brand-name">noor store</a>
-
+<a href="#" class="brand-name">
+    <img src="logo.png" alt="شعار المتجر" class="logo-img">
+</a>
             <div class="search-wrapper">
                 <i class="fa fa-search"></i>
                 <input type="text" id="searchInput" class="search-bar" placeholder="ابحثي عن منتجكِ هنا..." oninput="handleSearch()">
@@ -701,12 +788,37 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <select id="custPayment" required>
-                        <option value="">اختر طريقة الدفع</option>
-                        <option value="الدفع عند الاستلام">الدفع عند الاستلام</option>
-                        <option value="تحويل بنكي">تحويل بنكي</option>
-                    </select>
-                </div>
+    <label for="payment-method" style="font-weight: bold; display: block; margin-bottom: 8px;">طريقة الدفع:</label>
+    <select id="payment-method" onchange="togglePaymentDetails()" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #ccc; font-size: 16px;">
+        <option value="cod">الدفع عند الاستلام</option>
+        <option value="bank">التحويل البنكي (بنك فلسطين / محفظة)</option>
+    </select>
+</div>
+
+<div id="bank-details-box" class="bank-details-container" style="display: none;">
+    <h4>📋 خطوات ومعلومات التحويل البنكي:</h4>
+    <p>الرجاء تحويل مبلغ الطلب إلى أحد الحسابات التالية:</p>
+    
+    <div class="account-info">
+        <p><strong>🏦 حساب بنك فلسطين:</strong></p>
+        <ul>
+            <li><strong>اسم صاحب الحساب:</strong> متجر نور </li>
+            <li><strong>رقم الحساب:</strong> 1234567</li>
+            <li><strong>رقم الإيبان (IBAN):</strong> PS00 BANK 0000 0000 0001 2345 67</li>
+        </ul>
+    </div>
+
+    <div class="account-info" style="margin-top: 10px;">
+        <p><strong>📱 محفظة جوال بي بال </strong></p>
+        <ul>
+            <li><strong>رقم المحفظة / الهاتف:</strong> 059XXXXXXX</li>
+        </ul>
+    </div>
+
+    <div class="bank-alert-note">
+        ⚠️ <strong>خطوة هامة جداً:</strong> بعد إتمام عملية التحويل، يرجى أخذ لقطة شاشة (Screenshot) لإيصال التحويل، وإرسالها لنا عبر الواتساب مع اسمكِ لتأكيد الطلب وشحنه فوراً.
+    </div>
+</div>
                 <button type="submit" class="add-to-cart-btn" style="padding:12px; font-size:1rem;">تأكيد وإرسال الطلب عبر الواتساب</button>
             </form>
         </div>
@@ -732,7 +844,7 @@
         // مصفوفة البيانات الكاملة الخالية تماماً من التكرار والمصنفة والمربوطة بالاستبيان بدقة 100%
         const productsData = [
             // 1-13 منتجات كالييل (Calliel)
-            { id: 1, name: "تونر كالييل بحمض الجليكوليك لتقشير البشرة", category: "skincare", price: 110, use: "تجديد خلايا البشرة، إزالة الجلد الميت وعلاج التصبغات الباهتة", benefit: "نضارة فائقة وتفتيح ملحوظ", size: "200 مل", tag: "bestseller", skinType: "mixed", issue: "pigmentation", img: "https://calliel.com.tr/cdn/shop/files/Glycolic-Acid-Tonic1.jpg?v=1767689915&width=848" },
+            { id: 1, name: "تونر كالييل بحمض الجليكوليك لتقشير البشرة", category: "skincare", price: 110, use: "تجديد خلايا البشرة، إزالة الجلد الميت وعلاج التصبغات الباهتة", benefit: "نضارة فائقة وتفتيح ملحوظ", size: "200 مل", tag: " ", skinType: "mixed", issue: "pigmentation", img: "https://calliel.com.tr/cdn/shop/files/Glycolic-Acid-Tonic1.jpg?v=1767689915&width=848" },
 
             { id: 2, name: "منظف كالييل الرغوي الفقاعي للرؤوس السوداء", category: "skincare", price: 125, use: "تنظيف عميق جداً للمسام والتخلص التام من الرؤوس السوداء والزهم", benefit: "مسام نقية ومظهر صافي", size: "150 مل", tag: "bestseller", skinType: "oily", issue: "acne", img: "https://calliel.com.tr/cdn/shop/files/Bubble-Blackhead1.jpg?v=1767690037&width=848" },
 
@@ -756,7 +868,7 @@
 
             { id: 12, name: "واقي شمس كالييل المرطب والواقي اليومي الشامل", category: "skincare", price: 110, use: "حماية واسعة النطاق من أشعة الشمس الضارة مع حماية حاجز البشرة الطبيعي", benefit: "مقاوم للتعرق ولا يترك علامات بيضاء", size: "50 مل", tag: "normal", skinType: "all", issue: "all", img: "https://calliel.com.tr/cdn/shop/files/Gunes-Kremi1.jpg?v=1767689941&width=848" },
 
-            { id: 13, name: "واقي شمس كالييل الخفي الشفاف تماماً (Unseen)", category: "skincare", price: 120, use: "قوام جل شفاف خفيف للغاية يمتص فوراً، مثالي كأساس ومثبت للمكياج", benefit: "مظهر غير لامع ومخملي ساحر", size: "50 مل", tag: "bestseller", skinType: "mixed", issue: "all", img: "https://calliel.com.tr/cdn/shop/files/Unseen-Sunscreen1_399c1740-8227-4753-b0c9-0e5d0095b440.jpg?v=1767690364&width=848" },
+            { id: 13, name: "واقي شمس كالييل الخفي الشفاف تماماً (Unseen)", category: "skincare", price: 120, use: "قوام جل شفاف خفيف للغاية يمتص فوراً، مثالي كأساس ومثبت للمكياج", benefit: "مظهر غير لامع ومخملي ساحر", size: "50 مل", tag: " ", skinType: "mixed", issue: "all", img: "https://calliel.com.tr/cdn/shop/files/Unseen-Sunscreen1_399c1740-8227-4753-b0c9-0e5d0095b440.jpg?v=1767690364&width=848" },
 
             // 14-19 منتجات هيلو بيوتي سكواد (Hello Beauty Squad)
             { id: 14, name: "كريم هيمالايا المغذي للبشرة", category: "skincare", price: 95, use: "هذا الكريم مخصص لترطيب وتغذية البشرة، حيث يحتوي على مكونات طبيعية تساعد على الحفاظ على نعومة الجلد وحمايته من الجفاف", benefit: "إشراقة ونقاء فوري", size: "150 مل", tag: "normal", skinType: "sensitive", issue: "pigmentation", img: "https://www.bing.com/th/id/OIP.kwNbc-AV610oTmM-s4a80gHaHa?w=180&h=180&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" },
@@ -771,13 +883,14 @@
 
 
             // 20-25 منتجات سكين ماستر (Skinmaster) - تم دمجها ومنع التكرار
-            { id: 20, name: "سيروم سكين ماستر أربوتين ونياكيناميد للتفتيح المزدوج", category: "skincare", price: 135, use: "علاج التصبغات، إزالة آثار الحبوب المستعصية، مضاف إليه حمض الجليكوليك", benefit: "توحيد جبار للون وإشراقة وردية", size: "20 مل", tag: "bestseller", skinType: "all", issue: "pigmentation", img: "https://cdn.dsmcdn.com/ty1580/prod/QC/20241005/21/54214c60-ee10-3ba4-b459-7bfc5516a3c6/1_org_zoom.jpg" },
+            { id: 20, name: "بخاخ عناية بالشعر من  Urban Care", category: "haircare", price: 35, use: " يحتوي على خلاصة إكليل الجبل (Rosemary) والقرنفل (Clove)، وهو مصمم لتقوية الشعر وحمايته من العوامل الضارة.", benefit: "تتقوية الشعر من الجذور حتى الأطراف", size: "150 مل", tag: " ", skinType: "all", issue: "pigmentation", img: "https://cdn.dsmcdn.com/ty1580/prod/QC/20241005/21/54214c60-ee10-3ba4-b459-7bfc5516a3c6/1_org_zoom.jpg" },
             { id: 21, name: "لوشن ترطيب وتفتيح للجسم", category: "bodycare", price: 140, use: " رائحة عطرية منعشة تدوم لفترة طويلة", benefit: "بشرة شابة مشدودة ونضرة جداً", size: "30 مل", tag: "normal", skinType: "all", issue: "wrinkles", img: "https://tse1.mm.bing.net/th/id/OIP.GIYEsHQXId7xzZhfI_6sLAHaHa?cb=thfc1falcon2&w=500&h=500&rs=1&pid=ImgDetMain&o=7&rm=3" },
 
             { id: 22, name: "غسول لعلاج حب الشباب", category: "skincare", price: 130, use: "مضاد أكسدة قوي ومشرق للوجه، يحتوي على نياكيناميد وحمض الهيالورونيك", benefit: "إضاءة ونضارة ومكافحة بهتان الجلد", size: "20 مل", tag: "normal", skinType: "all", issue: "pigmentation", img: "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-loth224c36kr7c" },
 
             { id: 23, name: "لوشن الجسم من بالمرز برائحة زهرة الزنبق المائي", category: "bodycare", price: 125, use: "يحتوي على مكونات طبيعية مثل زهرة الزنبق المائي، فيتامين E، ومستخلص الفطر الأبيض", benefit: "يساعد على توحيد لون البشرة ومنحها مظهراً متألقاً ومتوازناً", size: "30 مل", tag: "normal", skinType: "sensitive", issue: "acne", img: "https://http2.mlstatic.com/D_NQ_NP_831930-MLU73338608204_122023-O.webp" },
-            { id: 24, name: "كريم تفتيح وتوحيد لون البشرة ", category: "skincare", price: 115, use: "  يحتوي على فيتامين E و5% نياسيناميد، وخالٍ من الهيدروكينون", benefit: "استهداف البقع الداكنة وتوحيد لون البشرة", size: "50 مل", tag: "normal", skinType: "all", issue: "dryness", img: "https://tse1.mm.bing.net/th/id/OIP.dOpzyfLbpXIgbEY8gLVgkgHaHa?cb=thfc1falcon2&w=1200&h=1200&rs=1&pid=ImgDetMain&o=7&rm=3" },
+            
+{ id: 24, name: "كريم تفتيح وتوحيد لون البشرة ", category: "skincare", price: 115, use: "  يحتوي على فيتامين E و5% نياسيناميد، وخالٍ من الهيدروكينون", benefit: "استهداف البقع الداكنة وتوحيد لون البشرة", size: "50 مل", tag: "normal", skinType: "all", issue: "dryness", img: "https://tse1.mm.bing.net/th/id/OIP.dOpzyfLbpXIgbEY8gLVgkgHaHa?cb=thfc1falcon2&w=1200&h=1200&rs=1&pid=ImgDetMain&o=7&rm=3" },
 
             { id: 25, name: "سيروم سكين ماستر BHA لتضييق المسام وإزالة الرؤوس السوداء", category: "skincare", price: 130, use: "منع تشكل الأكني والرؤوس المزعجة بمساعدة النياكيناميد والـ BHA", benefit: "مسام ضيقة ومظهر نقي ناعم", size: "30 مل", tag: "normal", skinType: "oily", issue: "acne", img: "https://flavus.com/cdn/shop/files/skinmaster-gozenek-sikilastirici-siyah-nokta-ve-akne-olusumunu-gidermeye-yardimci-bakim-serumu-bha-b3-ha-8683434733045-659808_grande.jpg?v=1711058222" },
 
@@ -786,14 +899,14 @@
 
             { id: 27, name: "غسول بان أوكسيل الرغوي الطبي لحب الشباب Benzoyl Peroxide", category: "skincare", price: 140, use: "الغسول رقم 1 الموصى به من أطباء الجلد لقتل بكتيريا الحبوب وتنظيف الجسم والوجه", benefit: "قضاء نهائي وسريع على حب الشباب", size: "156 جم", tag: "bestseller", skinType: "oily", issue: "acne", img: "https://hebronnutrition.com/cdn/shop/files/panoxyl_foaming_new_label_719hqT1t0KL._SL1500_1498x1498.jpg?v=1756157023" },
 
-            { id: 28, name: "غسول شوكوبوتسو النسائي للمناطق الحساسة (Everyday Confidence)", category: "bodycare", price: 55, use: "تطهير يومي لطيف جداً يمنح الانتعاش والثقة طوال اليوم ويحافظ على مستويات الـ pH", benefit: "حماية يومية ناعمة ومنعشة برائحة فخمة", size: "250 مل", tag: "normal", skinType: "all", issue: "all", img: "https://www.thaibynature.com/export/image/cache/catalog/wholesale/health-beauty/feminine-care/shokubutsu-feminine-cleansin/everyday-confidence-630x420.jpg" },
+            { id: 28, name: "غسول نسائي للمناطق الحساسة (Everyday Confidence)", category: "bodycare", price: 55, use: "تطهير يومي لطيف جداً يمنح الانتعاش والثقة طوال اليوم ويحافظ على مستويات الـ pH", benefit: "حماية يومية ناعمة ومنعشة برائحة فخمة", size: "250 مل", tag: "normal", skinType: "all", issue: "all", img: "https://www.thaibynature.com/export/image/cache/catalog/wholesale/health-beauty/feminine-care/shokubutsu-feminine-cleansin/everyday-confidence-630x420.jpg" },
 
             // 29-34 منتجات العناية بالشعر (Haircare)
             { id: 29, name: "شامبو هيمالايا العشبي لإصلاح الشعر الجاف والتالف", category: "haircare", price: 40, use: "تغذية عميقة للشعر المتعب والمتقصف بمستخلصات البروتين الطبيعية ليعيد الحيوية", benefit: "شعر رطب، قوي ولامع من الجذور", size: "400 مل", tag: "normal", skinType: "all", issue: "all", img: "https://img02.zdravnitza.com/6249-home_default/shampoan-za-suha-i-iztoshtena-kosa-himalaya-400-ml.jpg" },
             { id: 30, name: "شامبو هيمالايا لتكثيف الشعر وزيادة حيوية وحجم الخصلات", category: "haircare", price: 40, use: "يعطي كثافة ومظهر ممتلئ وصحي للشعر الخفيف والناعم بدون إثقال خصلاتك", benefit: "شعر كثيف، حيوي وذو مظهر جذاب", size: "400 مل", tag: "normal", skinType: "all", issue: "all", img: "https://himalayawellness.eu/cdn/shop/files/Volume-_-Thickness-Shampoo-Front.jpg?v=1708496043&width=1080" },
             { id: 31, name: "شامبو هيمالايا النعومة واللمعان الفائق للشعر الباهت", category: "haircare", price: 40, use: "ينعم ألياف الشعر الخشن والمتطاير، ويضفي لمعاناً كريستالياً ساحراً", benefit: "انسيابية فائقة وملمس حريري", size: "400 مل", tag: "normal", skinType: "all", issue: "all", img: "https://himalayawellness.my/cdn/shop/products/Shampoo-Softness-_-Shine-400ml.png?v=1653544638&width=1080" },
 
-            { id: 32, name: "بخاخ عناية سائل للشعر بالكيراتين", category: "haircare", price: 85, use: "بخاخ سائل يفك تشابك الخصلات فوراً و مناسب للشعر الجاف أو المتضرر من الصبغات والسشوار", benefit: "نعومة فورية ولمعان طبيعي خلاب", size: "200 مل", tag: "bestseller", skinType: "all", issue: "all", img: "https://www.ogempharma.com/uploads/urunler/urban-care-argan-oil-sivi-sac-bakim-kremi-200-ml-5570.jpg" },
+            { id: 32, name: "بخاخ عناية سائل للشعر بالكيراتين", category: "haircare", price: 85, use: "بخاخ سائل يفك تشابك الخصلات فوراً و مناسب للشعر الجاف أو المتضرر من الصبغات والسشوار", benefit: "نعومة فورية ولمعان طبيعي خلاب", size: "200 مل", tag: " ", skinType: "all", issue: "all", img: "https://www.ogempharma.com/uploads/urunler/urban-care-argan-oil-sivi-sac-bakim-kremi-200-ml-5570.jpg" },
 
             { id: 33, name: "ماسك فانوﻻ (Fanola Smooth Care) الاحترافي لتمليس وفرد الشعر", category: "haircare", price: 120, use: "قناع صالونات غني بقطرات القطن، يسهل فرد الشعر المجعد ويقضي على النفشة تماماً", benefit: "نعومة فائقة وتمليس يدوم طويلاً", size: "500 مل", tag: "bestseller", skinType: "all", issue: "all", img: "https://www.esteto.bg/static/images/produse/77795/maska-za-izpravyane-na-kosata-fanola-smooth-care-straightening-mask-500ml-1.jpg" },
 
@@ -1274,7 +1387,7 @@
 { 
   id: 71, 
   name: "غسول للعناية الشخصية ", 
-  category: "perfume", // أو haircare أو perfume او bodycare او makeup او skincare
+  category: "bodycare", // أو haircare أو perfume او bodycare او makeup او skincare
   price:40, // السعر بدون كتابة كلمة شيكل
   use: "مخصص لتنظيف المنطقة الحساسة و يساعد في الحفاظ على النظافة الشخصية والتقليل من الروائح غير المرغوبة  ", 
   benefit: "  ", 
@@ -1286,8 +1399,885 @@
 },
 
 
+{ 
+  id: 72, 
+  name: "بخاخ للعناية بالشعر يحتوي على الكيراتين المكثف ", 
+  category: "haircare", // أو haircare أو perfume او bodycare او makeup او skincare
+  price:30, // السعر بدون كتابة كلمة شيكل
+  use: "يقوم بتقوية الشعر يحتوي على الكيراتين الذي يساعد على إصلاح الشعر التالف وتقويته من الجذور حتى الأطراف ويوفر حماية من الأشعة فوق البنفسجية يحمي الشعر من أضرار الشمس والعوامل البيئية",   benefit: " ترطيب وتغذية غني بالفيتامينات التي تمنح الشعر نعومة ولمعان ", 
+  size: "200 مل   ", 
+  tag: " ", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "all" , // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: " ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+  img: "https://www.ogempharma.com/uploads/urunler/urban-care-argan-oil-sivi-sac-bakim-kremi-200-ml-5570.jpg" },
 
 
+{ 
+  id: 73, 
+  name: "علاج ERiiS لتساقط الشعر ", 
+  category: "haircare", // أو haircare أو perfume او bodycare او makeup او skincare
+  price:30, // السعر بدون كتابة كلمة شيكل
+  use: " يحتوي على مكونات فعّالة مثل Biokapil 1 و Kapilarine التي تساعد على تقوية بصيلات الشعر وتحفيز نموه.", 
+  benefit: " مخصص و مصمم خصيصًا لاحتياجات الشعر ", 
+  size: "14 عبوة 2.5 مل لكل واحدة   ", 
+  tag: " ", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "all" , // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: " ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+img:"https://store.yohohongkong.com/mkp/gallery/goods/images/807903fa-8233-4110-99a9-46c7ea43a622_mkp_image.webp" },
+
+
+{ 
+  id: 74, 
+  name: "علاج ERiiS لتساقط الشعر ", 
+  category: "haircare", // أو haircare أو perfume او bodycare او makeup او skincare
+  price:30, // السعر بدون كتابة كلمة شيكل
+  use: " يحتوي على مكونات مثل IRSOdixinaT-S و Capixyl، وهو مُختبر من الناحية الجلدية والإكلينيكية.", 
+  benefit: " مخصص و مصمم خصيصًا لاحتياجات الشعر ", 
+  size: "14 عبوة 2.5 مل لكل واحدة   ", 
+  tag: " ", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "all" , // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: " ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+img:"https://tse1.mm.bing.net/th/id/OIP.ZPEU7fx2JfOjjfkFb6s-4QHaHa?cb=thfc1falcon2&w=800&h=800&rs=1&pid=ImgDetMain&o=7&rm=3" },
+
+
+{ 
+  id: 75, 
+  name: "منتج شامبو هيمالايا ضد تساقط الشعر ", 
+  category: "haircare", // أو haircare أو perfume او bodycare او makeup او skincare
+  price:20, // السعر بدون كتابة كلمة شيكل
+  use: "  شامبو مخصص لتقليل تساقط الشعر. يحتوي على مكونات طبيعية مثل زيت الخروع والكافيين، ويعمل على تقوية جذور الشعر وتغذيته بالبروتينات الطبيعية، مما يساعد على تقليل التكسر والتساقط.", 
+  benefit: " ودعي  تساقط الشعر ", 
+  size: "14 عبوة 2.5 مل لكل واحدة   ", 
+  tag: " ", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "all" , // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: " ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+img:"https://www.bing.com/th/id/OIP.QZreYDMeQjXEaGbDtjCkcQHaHa?w=180&h=180&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" },
+
+
+{ 
+  id: 76, 
+  name: "لوشن مرطب بزيت الأفوكادو وفيتامينات B5 وB3 ", 
+  category: "bodycare", // أو haircare أو perfume او bodycare او makeup او skincare
+  price:20, // السعر بدون كتابة كلمة شيكل
+  use: "  يوفر ترطيبًا وتغذية عميقة لبشرة ناعمة وملساء وصحية المظهر. يساعد المزيج الغني من زيت الأفوكادو الطبيعي والفيتامينات الأساسية على استعادة توازن الرطوبة وتحسين مرونة البشرة..", 
+  benefit: "تغذية عميقة لبشرة ناعمة وملساء وصحية المظهر ", 
+  size: "237 مل   ", 
+  tag: " ", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "all" , // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: " ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+img:"https://www.bing.com/th/id/OIP.71xc-mwUWv-6S4vz068yCQHaHa?w=180&h=180&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" },
+
+{ 
+  id: 77, 
+  name: "سيروم الريتينول من Skinmaster ", 
+  category: "skincare", // أو haircare أو perfume او bodycare او makeup او skincare
+  price: 40, // السعر بدون كتابة كلمة شيكل
+  use: "يحتوي على مزيج من المكونات النشطة مثل:الريتينول: يساعد على تجديد خلايا البشرة وتقليل التجاعيد والخطوط الدقيقة حمض الساليسيليك: يساهم في تنظيف المسام وتقليل حب الشباب. النياسيناميد (فيتامين B3): يعمل على توحيد لون البشرة وتقليل التصبغات. حمض الهيالورونيك: يرطب البشرة بعمق ويحافظ على مرونتها.", 
+  benefit: "مكافحة علامات التقدم في السن تحسين ملمس البشرة وجعلها أكثر نعومة تقليل البقع الداكنة والتصبغات. المساعدة في علاج حب الشباب وتنظيف المسام. ", 
+  size: "20 مل   ", 
+  tag: " ", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "all", // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: "pigmentation,dryness ,wrinkles", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+  img: "ser.png" ,
+},
+
+
+{ 
+  id: 78, 
+  name: "واقي شمس SKINMASTER SPF 50+ ", 
+  category: "skincare", // أو haircare أو perfume او bodycare او makeup او skincare
+  price: 40, // السعر بدون كتابة كلمة شيكل
+  use: "عامل حماية SPF 50+: يوفر حماية عالية ضد الأشعة فوق البنفسجية UVB التي تسبب حروق الشمس. تصنيف PA++++: يمنح حماية قوية ضد الأشعة فوق البنفسجية UVA التي تسبب الشيخوخة المبكرة للبشرة حماية مزدوجة: يحمي من كل من UVA وUVB.تركيبة لطيفة: مناسبة للاستخدام اليومي، ويمكن أن تحتوي على مكونات مرطبة للحفاظ على نعومة البشرة.", 
+  benefit: "واقي شمس متعدد الوظائف ", 
+  size: "50 مل   ", 
+  tag: " ", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "all", // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: " ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+  img: "WW.png" ,
+},
+
+
+{ 
+  id: 79, 
+  name: "سيروم SKINMASTER لإزالة البقع الداكنة ", 
+  category: "skincare", // أو haircare أو perfume او bodycare او makeup او skincare
+  price: 40, // السعر بدون كتابة كلمة شيكل
+  use: "يُستخدم هذا السيروم لتفتيح البقع الداكنة وتوحيد لون البشرة، كما يساعد على تحسين ملمس الجلد وترطيبه ويحتوي على مكونات فعّالة مثل الأربوتين، النياسيناميد، حمض الجليكوليك، وحمض الهيالورونيك.", 
+  benefit: "تفتيح البقع الداكنة الناتجة عن الشمس أو آثار الحبوب توحيد لون البشرة وجعلها أكثر إشراقًا ترطيب عميق بفضل حمض الهيالورونيك تحفيز تجديد الخلايا بفضل حمض الجليكوليك. ", 
+  size: "20 مل   ", 
+  tag: " ", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "all", // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: "pigmentation ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+  img: "rr.png" ,
+},
+
+{ 
+  id: 80, 
+  name: "سيروم SKINMASTER بحمض الأزيليك ", 
+  category: "skincare", // أو haircare أو perfume او bodycare او makeup او skincare
+  price: 40, // السعر بدون كتابة كلمة شيكل
+  use: " تقليل التصبغات والبقع الداكنة الناتجة عن الشمس أو آثار الحبوب تهدئة البشرة وتقليل الاحمرار والالتهابات، خاصة للبشرة الحساسة أو المعرضة لحب الشباب ترطيب البشرة بفضل حمض الهيالورونيك والبانثينول تحسين ملمس البشرة وجعلها أكثر نعومة ونضارة", 
+  benefit: "تحسين ملمس البشرة وجعلها أكثر نعومة ونضارة. ", 
+  size: "20 مل   ", 
+  tag: " ", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "all", // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: "pigmentation ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+  img: "aa.png" ,
+},
+
+
+{ 
+  id: 81, 
+  name: "سيروم فيتامين C من Skinmaster ", 
+  category: "skincare", // أو haircare أو perfume او bodycare او makeup او skincare
+  price: 40, // السعر بدون كتابة كلمة شيكل
+  use: "تفتيح البشرة والمساعدة في توحيد لونها تقليل مظهر التصبغات والبقع الداكنة الناتجة عن الشمس أو آثار الحبوب تحفيز إنتاج الكولاجين مما يساعد على تقليل الخطوط الدقيقة والتجاعيد ترطيب البشرة بفضل حمض الهيالورونيك تهدئة البشرة وتقليل الاحمرار بفضل النياسيناميد", 
+  benefit: "يساعد على إعطاء البشرة مظهرًا مشرقًا وصحيًا . ", 
+  size: "20 مل   ", 
+  tag: " ", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "all", // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: "pigmentation ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+  img: "dd.png" ,
+},
+
+{ 
+  id: 82, 
+  name: "سيروم  الجينسنغ للعناية بالبشرة ", 
+  category: "skincare", // أو haircare أو perfume او bodycare او makeup او skincare
+  price: 40, // السعر بدون كتابة كلمة شيكل
+  use: "ترطيب عميق للبشرة بفضل حمض الهيالورونيك تحسين مرونة البشرة ومظهرها  الصحي بفضل مستخلص الجينسنغ تفتيح وتوحيد لون البشرة بفضل النياسيناميد تهدئة البشرة وتقليل الاحمرار بفضل البانثينول مناسب لمعظم أنواع البشرة، خاصة الباهتة أو الجافة يحتوي على مزيج من المكونات النشطة مثل مستخلص جذور الجينسنغ، حمض الهيالورونيك، النياسيناميد، والبانثينول", 
+  benefit: "تحسين مرونة البشرة ومظهرها الصحي بفضل مستخلص الجينسنغ", 
+  size: "20 مل   ", 
+  tag: " ", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "all ,dry", // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: "pigmentation ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+  img: "tt.png" ,
+},
+
+{ 
+  id: 83, 
+  name: "مقشر إنزيمي للبشرة من  Beauty Squad ", 
+  category: "skincare", // أو haircare أو perfume او bodycare او makeup او skincare
+  price: 70, // السعر بدون كتابة كلمة شيكل
+  use: "يترطيب البشرة والحفاظ على الرطوبة. دعم حاجز البشرة وتقويته. تحسين نعومة ومرونة الجلد. منح البشرة مظهراً أكثر امتلاءً وصحة.", 
+  benefit: "   ترطيب عميق و يساعد على تقوية حاجز البشرة ومنع فقدان الرطوبة و يساعد على توحيد لون البشرة وتقليل مظهر المسام.  و يحتوي على مضادات أكسدة تساعد على حماية البشرة.", 
+  size: "50 مل   ", 
+  tag: "bestseller", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "all ", // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: " ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+  img: "oo.png" ,
+},
+
+
+{ 
+  id: 84, 
+  name: "سيروم مرطب ومُعزِّز للإشراقة من  Beauty Squad ", 
+  category: "skincare", // أو haircare أو perfume او bodycare او makeup او skincare
+  price: 90, // السعر بدون كتابة كلمة شيكل
+  use: "يقوم بترطيب البشرة بعمق وزيادة امتلائها ونعومتها منح البشرة مظهراً أكثر إشراقاً وحيوية المساعدة على توحيد لون البشرة وتقليل مظهر البقع الداكنة الخفيفة مناسب للاستخدام اليومي لجميع أنواع البشرة.", 
+  benefit: "يدعم حاجز البشرة يساعد على تقليل الاحمرار وتنظيم إفراز الدهون يساهم في تحسين مظهر المسام والبقع.", 
+  size: "30 مل   ", 
+  tag: " ", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "all ", // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: " ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+  img: "uu.png" ,
+},
+
+{ 
+  id: 85, 
+  name: "كريم الببتيدات للعناية بالبشرة من  Beauty Squad ", 
+  category: "skincare", // أو haircare أو perfume او bodycare او makeup او skincare
+  price: 90, // السعر بدون كتابة كلمة شيكل
+  use: "ترطيب البشرة بعمق وزيادة امتلائها ونعومتها منح البشرة مظهراً أكثر إشراقاً وحيوية المساعدة على توحيد لون البشرة وتقليل مظهر البقع الداكنة الخفيفة مناسب للاستخدام اليومي لجميع أنواع البشرة.", 
+  benefit: "يدعم حاجز البشرة يساعد على تقليل الاحمرار وتنظيم إفراز الدهون يساهم في تحسين مظهر المسام والبقع.", 
+  size: "30 مل   ", 
+  tag: " ", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "all ", // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: " ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+  img: "ss.png" ,
+},
+
+
+{ 
+  id: 86, 
+  name: "سيروم التقشير بحمض الساليسيليك 2% من  Beauty Squad ", 
+  category: "skincare", // أو haircare أو perfume او bodycare او makeup او skincare
+  price: 90, // السعر بدون كتابة كلمة شيكل
+  use: "يقوم بتنظيف المسام من الداخل ,و تقليل الرؤوس السوداء والبيضاء وتخفيف الحبوب والانسدادات وتقليل لمعان البشرة الناتج عن الدهون الزائدة وتحسين ملمس البشرة تدريجياً..", 
+  benefit: "مقشر كيميائي ينظف المسام ويعالج الحبوب.", 
+  size: "30 مل   ", 
+  tag: "bestseller", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "oily ,mixed", // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: " acne", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+  img: "vv.png" ,
+},
+
+
+{ 
+  id: 87, 
+  name: "تونر مقشّر ومفتّح للبشرة من  Beauty Squad ", 
+  category: "skincare", // أو haircare أو perfume او bodycare او makeup او skincare
+  price: 90, // السعر بدون كتابة كلمة شيكل
+  use: "يساعد على: توحيد لون البشرة و تخفيف آثار الحبوب والتصبغات.وتقليل الاحمرار وتهدئة البشرة و تحسين ملمس البشرة وجعلها أكثر نعومة وإشراقًا وتقشير لطيف للخلايا الميتة.", 
+  benefit: "يجمع الأزيليك أسيد + النياسيناميد + فيتامين C + أحماض التقشير في خطوة واحدة.", 
+  size: "30 مل   ", 
+  tag: "bestseller", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "all", // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: " pigmentation ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+  img: "kk.png" ,
+},
+
+{ 
+  id: 88, 
+  name: "كريم مزيل عرق مونتاج ناعم لتبييض", 
+  category: "bodycare", // أو haircare أو perfume او bodycare او makeup
+  price: 35, // السعر بدون كتابة كلمة شيكل
+  use: "تبييض وتفتيح البشرة-رائحة جميلة - مضاد للبكتيريا- لا يترك آثارا على الملابس أو علامات عليها -تأثيره يستمر لمدة 48 ساعة", 
+  benefit: "للحصول على نتائج رائعة، ينصح بالاستمرار في استخدام المنتج", 
+  size: "70 جرام", 
+  tag: "normal", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "", // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: "", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+  img: "https://www.adamonline.com/uploads/products/medium/1028785.png" 
+},
+
+
+{ 
+  id: 89, 
+  name: " مزيل عرق كريم تفتيح وانتعاش", 
+  category: "bodycare", // أو haircare أو perfume او bodycare او makeup
+  price: 35, // السعر بدون كتابة كلمة شيكل
+  use: "تبييض وتفتيح البشرة-رائحة جميلة - مضاد للبكتيريا- لا يترك آثارا على الملابس أو علامات عليها -تأثيره يستمر لمدة 48 ساعة", 
+  benefit: "للحصول على نتائج رائعة، ينصح بالاستمرار في استخدام المنتج", 
+  size: "70 جرام", 
+  tag: "normal", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "", // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: "", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+  img: "https://www.adamonline.com/uploads/products/medium/1028786.png" 
+},
+
+
+{ 
+  id: 90, 
+  name: " مزيل عرق كريم تفتيح ", 
+  category: "bodycare", // أو haircare أو perfume او bodycare او makeup
+  price: 35, // السعر بدون كتابة كلمة شيكل
+  use: "تبييض وتفتيح البشرة-رائحة جميلة - مضاد للبكتيريا- لا يترك آثارا على الملابس أو علامات عليها -تأثيره يستمر لمدة 48 ساعة", 
+  benefit: "للحصول على نتائج رائعة، ينصح بالاستمرار في استخدام المنتج", 
+  size: "70 جرام", 
+  tag: "normal", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "", // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: "", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+  img: "ii.png" 
+},
+
+{ 
+  id: 92, 
+  name: " مزيل عرق كريم تفتيح ", 
+  category: "bodycare", // أو haircare أو perfume او bodycare او makeup
+  price: 35, // السعر بدون كتابة كلمة شيكل
+  use: "تبييض وتفتيح البشرة-رائحة جميلة - مضاد للبكتيريا- لا يترك آثارا على الملابس أو علامات عليها -تأثيره يستمر لمدة 48 ساعة", 
+  benefit: "للحصول على نتائج رائعة، ينصح بالاستمرار في استخدام المنتج", 
+  size: "70 جرام", 
+  tag: "normal", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "", // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: "", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+  img: "pp.png" 
+},
+
+{ 
+  id: 93, 
+  name: " صبغة شعر Indica Easy", 
+  category: "haircare", // أو haircare أو perfume او bodycare او makeup
+  price: 35, // السعر بدون كتابة كلمة شيكل
+  use: " صبغة شعر تعتمد على تركيبة شامبو لتلوين الشعر بسهولة وهي خالية من الأمونيا، مما يجعلها ألطف على الشعر وفروة الرأس ويحتوي على بلسم مثبت للون للمحافظة على اللون لفترة أطول مدعّم ببروتين اللوز لتغذية الشعر يحتوي على 5 أعشاب طبيعية مثل الحناء، الأملا، الكركديه، وغيرها", 
+  benefit: "100% تغطية للشيب", 
+  size: " مل", 
+  tag: "normal", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "", // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: "", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+  img: "https://images-na.ssl-images-amazon.com/images/I/41Diu9yAk4L._SL500_._AC_SL500_.jpg" 
+},
+
+{ 
+  id: 94 , 
+  name: "زيت للجسم يحتوي على زبدة الكاكاو النقية", 
+  category: "bodycare", // أو haircare أو perfume او bodycare او makeup
+  price: 10, // السعر بدون كتابة كلمة شيكل
+  use: " يأتي بتركيبة زيتية خفيفة تمتصها البشرة بسرعة ويمنح لمعانًا صحيًا للبشرة دون أن يترك إحساسًا دهنيًا مزعجًا ويساعد على تحسين مظهر البشرة وجعلها أكثر نعومة ومرونة", 
+  benefit: "تغذية البشرة ومنحها ملمسًا ناعمًا", 
+  size: "200 مل",
+  tag: "normal", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "", // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: "", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+  img: "https://sinin.com.bd/wp-content/uploads/2023/12/Vaseline-Intensive-Care-Body-Oil-Cocoa-Radiant-200ml-320x320.jpg" 
+},
+
+
+{ 
+  id: 95 , 
+  name: "بخاخ القدم للتحكم في الرائحة من بيوتي فورميولا", 
+  category: "bodycare", // أو haircare أو perfume او bodycare او makeup
+  price: 10, // السعر بدون كتابة كلمة شيكل
+  use: " يبخاخ للقدم بتركيبة خاصة للتحكم في الروائح  صُمم ليُستخدم مباشرة على القدمين.", 
+  benefit: "منع الروائح الكريهة الناتجة عن التعرق ", 
+  size: "150 مل",
+  tag: "normal", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "", // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: "", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+  img: "https://www.beautymind.com.bd/wp-content/uploads/2023/10/Beauty-Formulas-Odour-Control-Foot-Spray-150ml.jpg" 
+},
+
+{ 
+  id: 96, 
+  name: "شرائح شمع الألوفيرا لإزالة الشعر ", 
+  category: "bodycare", // أو haircare أو perfume او bodycare او makeup
+  price: 10, // السعر بدون كتابة كلمة شيكل
+  use: "مكونات طبيعية: يحتوي على الألوفيرا وزيت بذور العنب للمساعدة في ترطيب البشرة", 
+  benefit: "ملمس ناعم للبشرة بعد الاستخدام بفضل المكونات المرطبة", 
+  size: "36 شريحة ", 
+  tag: "normal", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "", // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: " ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+  img: "https://healthplusmalta.com/wp-content/uploads/2024/03/5012251006729.jpg" 
+},
+
+{ 
+  id: 97, 
+  name: "Vaseline Blueseal Baby ", 
+  category: "bodycare", // أو haircare أو perfume او bodycare او makeup
+  price: 10, // السعر بدون كتابة كلمة شيكل
+  use: "ترطيب البشرة الجافة وحمايتها من التشقق والوقاية من الطفح الجلدي الناتج عن الحفاضات وحماية البشرة من العوامل الخارجية مثل الرياح والبرد ويمكن استخدامه أيضًا لتهدئة تهيج البشرة الخفيف", 
+  benefit: "فازلين  نقي مخصص للعناية ببشرة الأطفال. يأتي بتركيبة لطيفة وخالية من المواد المهيجة", 
+  size: "50 مل ", 
+  tag: "normal", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "", // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: " ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+  img: "https://www.beautymind.com.bd/wp-content/uploads/2023/01/Vaseline-Blueseal-Baby-Jelly-50ml-1024x1024.jpg" 
+},
+
+{ 
+  id: 98, 
+  name: " Vaseline Blue Seal Original ", 
+  category: "bodycare", // أو haircare أو perfume او bodycare او makeup
+  price: 10, // السعر بدون كتابة كلمة شيكل
+  use: "ترطيب البشرة الجافة: يساعد على حبس الرطوبة داخل الجلد ومنع الجفاف وحماية الشفاه: يمكن استخدامه كمرطب للشفاه لمنع التشقق وعلاج تشققات الكعبين: يوضع على القدمين قبل النوم مع ارتداء جوارب وحماية الجلد من التهيج: يستخدم على المناطق المعرضة للاحتكاك أو الجروح السطحية والعناية بالبشرة بعد الحلاقة: يقلل من الاحمرار والتهيج ", 
+  benefit: "نقي 100% وخالٍ من المواد الضارة", 
+  size: " مل ", 
+  tag: "normal", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "", // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: " ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+  img: "https://globalsupermarket.eu/wp-content/uploads/2023/11/Vaseline-Blueseal-Pure-Petroleum-Jelly-Original-250ml-2.webp" 
+},
+
+{ 
+  id: 99, 
+  name: " كريم ترطيب وتنعيم اليدين بزيت الصويا من Delia ", 
+  category: "bodycare", // أو haircare أو perfume او bodycare او makeup
+  price: 10, // السعر بدون كتابة كلمة شيكل
+  use: "ترطيب اليدين ومنع جفاف البشرة وتنعيم الجلد وجعله أكثر مرونة. وحماية البشرة من العوامل البيئية الضارة مثل البرد أو الغسيل المتكرر و قوامه خفيف وسريع الامتصاص، لا يترك طبقة دهنية مزعجة ", 
+  benefit: "يحتوي على زيت فول الصويا الغني بالأحماض الدهنية والفيتامينات التي تغذي البشرة.", 
+  size: "100 مل ", 
+  tag: "normal", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "", // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: " ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+  img: "https://pwa-api.eva.ua/img/0/0/resize/7/7/771092_1_1712060122.jpg" 
+},
+
+
+{ 
+  id: 100, 
+  name: " كريم ترطيب وتنعيم اليدين  من Delia ", 
+  category: "bodycare", // أو haircare أو perfume او bodycare او makeup
+  price: 10, // السعر بدون كتابة كلمة شيكل
+  use: " يحتوي على مكونات مرطبة مثل الجلسرين والألانتوين وترطيب اليدين وحمايتها من الجفاف وتهدئة البشرة المتهيجة أو المتشققة وتغذية الجلد وتحسين نعومته ومناسب للاستخدام اليومي خاصة في الأجواء الباردة أو الجافة ", 
+  benefit: "يمنح اليدين إحساسًا بالنعومة والراحة.", 
+  size: "100 مل ", 
+  tag: "normal", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "", // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: " ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+img: "https://www.cdiscount.com/pdt2/1/2/7/1/700x700/del5906750800127/rw/delia-feel-good-creme-mains-hydratante-100ml.jpg" 
+},
+
+{ 
+  id: 101, 
+  name: "  كريم لتليين وترطيب القدمين ", 
+  category: "bodycare", // أو haircare أو perfume او bodycare او makeup
+  price: 10, // السعر بدون كتابة كلمة شيكل
+  use: " يحتوي على 10% يوريا، المعروفة بخصائصها القوية في الترطيب والتقشير الخفيف، مما يساعد على تليين الجلد المتصلب وتحسين نعومته. ", 
+  benefit: " يقلل من الخشونة والندوب، مما يجعل البشرة أكثر نعومة.", 
+  size: "100 مل ", 
+  tag: "normal", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "", // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: " ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+img: "https://images.kaina24.lt/8221/73/pedu-kremas-bielenda-comfort-plus-minkstinamasis-100-ml-1.jpg" 
+},
+
+{ 
+  id: 102, 
+  name: " شامبو وبلسم 2 في 1 بزيت الأرغان والبرو كيراتين ", 
+  category: "haircare", // أو haircare أو perfume او bodycare او makeup
+  price: 35, // السعر بدون كتابة كلمة شيكل
+  use: "ترطيب عميق: يغذي خصلات الشعر الجافة بفضل خلاصة زيت الأرغان المغربي.إصلاح وتقوية وتكثيف: يحتوي على البرو كيراتين الذي يعيد بناء ألياف الشعر التالف والمقصف.زيادة حجم الشعر: يمنح الشعر مظهراً حيوياً وأكثر كثافة ونعومة.تنعيم وفك التشابك: يسهل تصفيف الشعر ويمنحه ملمساً حريرياً ولامعاً.حماية الشعر المصبوغ: تركيبة لطيفة تحافظ على ثبات لون الشعر المعالج كيميائياً أو المصبوغ.تنظيف فعال: يزيل الشوائب والزيوت الزائدة من فروة الرأس بلطف", 
+  benefit: " توفير العناية المتكاملة للشعر.", 
+  size: "500 مل ", 
+  tag: "normal", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "", // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: " ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+img:"bb.png" 
+},
+
+{ 
+  id: 103, 
+  name: " عطر جيني للرجال ", 
+  category: "perfume", // أو haircare أو perfume او bodycare او makeup
+  price: 65, // السعر بدون كتابة كلمة شيكل
+  use: "رائحة مكزمة من مزيج الأناناس والبرغموت والكشمش الأسود والتفاح الروائح الوسطى هي البتولا والباتشولي والياسمين المغربي والورد؛ الروائح القاعدية هي المسك وطحلب البلوط والعنبر والفانيليا.", 
+  benefit: " ثبات عالي وطويل الأمد.", 
+  size: "25 مل ", 
+  tag: "normal", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "", // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: " ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+img:"https://m.media-amazon.com/images/I/51oknWMug5L._AC_UF350,350_QL50_.jpg" 
+},
+
+{ 
+  id: 104, 
+  name: " Génie Collection No. 8809 ", 
+  category: "perfume", // أو haircare أو perfume او bodycare او makeup
+  price: 65, // السعر بدون كتابة كلمة شيكل
+  use: "تصميم أنيق زجاجة بسيطة وعملية مع بخاخ مريح. وسعر اقتصادي يقدم تجربة عطرية قريبة من العطور العالمية بسعر أقل", 
+  benefit: " ثبات عالي وطويل الأمد.", 
+  size: "25 مل ", 
+  tag: "normal", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "", // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: " ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+img:"1.png" 
+},
+
+{ 
+  id: 105, 
+  name: " بادي سبلاش من TRI COLLECTION", 
+  category: "perfume", // أو haircare أو perfume او bodycare او makeup
+  price: 25, // السعر بدون كتابة كلمة شيكل
+  use: "تعطير الجسم برائحة خفيفة ومنعشة، وعادةً يكون أقل تركيزًا من العطور التقليدية، مما يجعله مناسبًا للاستخدام اليومي.", 
+  benefit: "رائحة خفيفة ومنعشة", 
+  size: "250 مل ", 
+  tag: "normal", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "", // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: " ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+img:"2.jpeg" 
+},
+
+{ 
+  id: 106, 
+  name: " عطر Pink Shimmer Secret", 
+  category: "perfume", // أو haircare أو perfume او bodycare او makeup
+  price: 35, // السعر بدون كتابة كلمة شيكل
+  use: "هو من العطور الزهرية والفواكهية، ما يمنحها رائحة منعشة وأنثوية يحتوي على مزيج من روائح الفواكه الحلوة (مثل الفراولة أو التوت) مع لمسات من الأزهار البيضاء أو الفاوانيا.", 
+  benefit: "رائحة خفيفة ومنعشة وانثوية ", 
+  size: "250 مل ", 
+  tag: "normal", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "", // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: " ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+img:"3.jpeg" 
+},
+
+
+{ 
+  id: 107, 
+  name: " عطر الجوهرة النهار (AL JAWHAHRAH AL NAHAR) ", 
+  category: "perfume", // أو haircare أو perfume او bodycare او makeup
+  price: 75, // السعر بدون كتابة كلمة شيكل
+  use: "الرائحة: مزيج من النوتات الشرقية والزهور والفواكه، مع لمسات خشبية أو عنبرية تمنحه عمقًا وفخامة ,الثبات: بفضل تركيزه كـ Eau de Parfum، يتميز بثبات جيد يدوم لساعات طويلة , مناسب للاستخدام اليومي أو المناسبات الخاصة، خاصة في الأجواء الباردة أو المعتدلة..", 
+  benefit: "تركيز عالي نسبيًا، ما يجعله يدوم لفترة أطول على البشرة والملابس ", 
+  size: "100 مل ", 
+  tag: "normal", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "", // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: " ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+img:"4.jpeg" 
+},
+
+
+{ 
+  id: 108, 
+  name: " مستوحى من عطر Invictus عطر جيني ", 
+  category: "perfume", // أو haircare أو perfume او bodycare او makeup
+  price: 85, // السعر بدون كتابة كلمة شيكل
+  use: "الرائحة: مزيج منعش من النفحات البحرية والحمضيات مع لمسات خشبية دافئة الفئة: عطر رجالي يناسب الاستخدام اليومي والمناسبات. الثبات: يتميز بثبات جيد مقارنة بحجمه وسعره الانتشار: رائحة واضحة وملفتة دون أن تكون مزعجة التصميم: زجاجة على شكل كأس فوز، تعكس الطابع الرياضي والانتصار.", 
+  benefit: "معروف برائحته المنعشة والحيوية. وهو مثالي لفصل الصيف والربيع، وأيضًا للأجواء النشطة والرياضية ", 
+  size: "25 مل ", 
+  tag: "normal", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "", // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: " ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+img:"https://m.media-amazon.com/images/I/61IChG+ixoL._AC_UF1000,1000_QL80_.jpg" 
+},
+
+
+{ 
+  id: 109, 
+  name: " طر ميني من تشكيلة يومار كوليكشن (Youmar Collection) ", 
+  category: "perfume", // أو haircare أو perfume او bodycare او makeup
+  price: 85, // السعر بدون كتابة كلمة شيكل
+  use: "يحتوي على مزيج من نفحات زهرية مثل النرجس والورد والياسمين لمسات حمضية خفيفة في البداية قاعدة مسكية وخشبية تمنحه ثباتًا جيدًا.", 
+  benefit: "رائحة ناعمة وأنيقة مناسبة للاستخدام اليومي", 
+  size: "25 مل ", 
+  tag: "normal", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "", // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: " ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+img:"https://almokhtar.qa/cdn/shop/files/3464.jpg?v=1753523473" 
+},
+
+{ 
+  id: 110, 
+  name: " عطر جيني  (Coco Noir) ", 
+  category: "perfume", // أو haircare أو perfume او bodycare او makeup
+  price: 95, // السعر بدون كتابة كلمة شيكل
+  use: "رائحة فاخرة: يمنحك طابع عطور شانيل الفخمة بتكلفة مناسبة جداً.ثبات ممتاز: بفضل تركيز الـ EDP وقاعدته الخشبية والشرقية الدافئة.", 
+  benefit: "مثالي للأجواء الباردة، والمناسبات المسائية نظراً لدفئه وعمقه.", 
+  size: "25 مل ", 
+  tag: "normal", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "", // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: " ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+img:"https://cdn.miswag.me/images/images/9fdc9a3a-0fc2-406b-bf7e-ae7646c629a5.jpg" 
+},
+
+
+{ 
+  id: 111, 
+  name: " عطر  Genie Collection No. 8861، ", 
+  category: "perfume", // أو haircare أو perfume او bodycare او makeup
+  price: 95, // السعر بدون كتابة كلمة شيكل
+  use: "تصميم فاخر: يأتي بزجاجة حمراء أنيقة ذات طابع ملكي وملمس رخامي يحاكي زجاجة أرماني الأصلية.رائحة فخمة: يعطيك طابع العطور النيش الثمينة بأسعار اقتصادية ومناسبة جداً.", 
+  benefit: " يتميز العطر بتركيبة غنية تجمع بين النوتات الخشبية والزهرية والفاكهية.", 
+  size: "25 مل ", 
+  tag: "normal", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "", // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: " ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+img:"https://cdn.salla.sa/ARbO/0KsDCoOKdBVh6y1Y2pBY0N4SSf7KNVKLYmFyIl7v.jpg" 
+},
+
+{ 
+  id: 112, 
+  name: " عطر  B.A.D Femme ", 
+  category: "perfume", // أو haircare أو perfume او bodycare او makeup
+  price: 55, // السعر بدون كتابة كلمة شيكل
+  use: "طبيعة الرائحة: تبدأ بانتعاش حمضي مع لمسة دافئة من القهوة واللوز، ثم تتحول إلى باقة زهرية أنثوية ناعمة، وتستقر على قاعدة دافئة وسكرية غنية بالشكولاتة (الركاكاو) والفانيليا والتونكا.ً.", 
+  benefit: " يتميز العطر بتركيبة غنية ورائحة فخمة.", 
+  size: "100 مل ", 
+  tag: "normal", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "", // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: " ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+img:"https://images.tcdn.com.br/img/img_prod/1378660/body_splash_perfume_mist_bad_femme_maison_a_1_20260518113649_587ac9c26937.jpeg" 
+},
+
+{ 
+  id: 113, 
+  name: " عطر وشوشة (Washwashah) الشهير ", 
+  category: "perfume", // أو haircare أو perfume او bodycare او makeup
+  price: 90, // السعر بدون كتابة كلمة شيكل
+  use: "الرائحة: يمتاز بأنه يجمع بين حلاوة الفواكه وجاذبية الزهور البيضاء مع لمسة دافئة وحلوة من الفانيليا والمسك في النهاية.", 
+  benefit: " عطر مثالي جداً للاستخدام اليومي، والمناسبات الخاصة، والخروجات المهمة", 
+  size: "100 مل ", 
+  tag: "normal", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "", // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: " ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+img:"https://m.media-amazon.com/images/I/81-UmFWph6L._AC_UF1000,1000_QL80_.jpg" 
+},
+
+{ 
+  id: 114, 
+  name:" عطر إحساس جديد (Ehsas Jadeed) ", 
+  category: "perfume", // أو haircare أو perfume او bodycare او makeup
+  price: 90, // السعر بدون كتابة كلمة شيكل
+  use: " طبيعة الرائحة: عميقة، حلوة، معقدة وممزوجة بلمسات خشبية غامضة تناسب الأجواء الباردة والمناسبات الراقية", 
+  benefit: " تركيز عالي يمنح ثباتاً وفوحاناً ممتازين", 
+  size: "100 مل ",
+  tag: "normal", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "", // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: " ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRA8ku9T1MEmTP0fSofwLVjJqKsttNvMhhipgWiRFJUvKt1_wI5q4G7tQM&s=10" 
+},
+
+{ 
+  id: 115, 
+  name:" عطر بنت حوران (Bint Hooran) ", 
+  category: "perfume", // أو haircare أو perfume او bodycare او makeup
+  price: 90, // السعر بدون كتابة كلمة شيكل
+  use: " عطر دافئ، غامض، ومثالي للأجواء المسائية أو المناسبات الخاصة بفضل طابعه الشرقي الجذاب.", 
+  benefit: " يتميز بتركيبة غنية تجمع بين الانتعاش، و الدفئ، والأخشاب", 
+  size: "100 مل ",
+  tag: "normal", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "", // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: " ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiR78zOKV21Ws7IKVdGmMio18vpyssO0hSXp7Zbpt8vA&s" 
+},
+
+{ 
+  id: 116, 
+  name:" عطر  فلورينزا (Florenza)  ", 
+  category: "perfume", // أو haircare أو perfume او bodycare او makeup
+  price: 100, // السعر بدون كتابة كلمة شيكل
+  use: " عطر زهري منعش ومثالي للأجواء الربيعية والصيفية، ويصلح للاستخدام اليومي والنهاري والمناسبات.", 
+  benefit: " ييتمتع بتركيز جيد وثبات ممتاز على الملابس.", 
+  size: "100 مل ",
+  tag: "normal", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "", // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: " ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+img:"https://fragrancemarket.com/cdn/shop/files/Maison_Alhambra_Florence_EDP_34.png?v=1778171572" 
+},
+
+{ 
+  id: 117, 
+  name:" عطر مولين روج من جاكلين (Jaclin Collection - Moulin Rouge)", 
+  category: "perfume", // أو haircare أو perfume او bodycare او makeup
+  price: 100, // السعر بدون كتابة كلمة شيكل
+  use: " العطر مصمم ليعكس طابعاً غامضاً ومثيراً؛ حيث يجمع بشكل متوازن بين الانتعاش الفاكهي والدفء الشرقي البودري", 
+  benefit: " يُعد خياراً رائعاً للاستخدام في الأوقات المسائية والمناسبات بفضل الرائحة الدفيئة والمخملية التي يتركها خلفه..", 
+  size: "100 مل ",
+  tag: "normal", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "", // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: " ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+img:"https://cdn.riha.ir/storage/upload/images/2026/05/22/6a1039746101b.jpg" 
+},
+
+{ 
+  id: 118, 
+  name:" عطر  B.A.D Femme", 
+  category: "perfume", // أو haircare أو perfume او bodycare او makeup
+  price: 100, // السعر بدون كتابة كلمة شيكل
+  use: "يمنح فوحاناً دافئاً وجذاباً، وتبرز فيه روائح الفانيليا والكاكاو والأزهار البيضاء بشكل واضح، مما يجعله مثالياً للاستخدام في الأوقات الباردة والمناسبات المسائية واليومية", 
+  benefit: "ينتمي العطر إلى عائلة الأزهار الشرقية الفواكهية", 
+  size: "100 مل ",
+  tag: "normal", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "", // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: " ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+img:"5.jpeg" 
+},
+
+{ 
+  id: 119, 
+  name:" عطر (Youmsera Instant Crush)", 
+  category: "perfume", // أو haircare أو perfume او bodycare او makeup
+  price: 100, // السعر بدون كتابة كلمة شيكل
+  use: "تمتزج النوتات العطرية لتعطي توازناً غنياً بين الانتعاش والتوابل والحلاوة الدافئة", 
+  benefit: "عطر شرقي - زهري - خشبي دافئ", 
+  size: "100 مل ",
+  tag: "normal", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "", // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: " ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+img:"6.jpeg" 
+},
+
+{ 
+  id: 120, 
+  name:"عطر Special Night (Very Sexy)", 
+  category: "perfume", // أو haircare أو perfume او bodycare او makeup
+  price: 100, // السعر بدون كتابة كلمة شيكل
+  use: "يتركز حول باقة ناعمة من الأزهار الداكنة (مثل زهر السوسن أو الياسمين) لإضفاء لمسة أنثوية غامضة وجذابة.", 
+  benefit: "تعتمد تركيبته على تدرج حسي يجمع بين الفواكه المنعشة والأخشاب الدافئة", 
+  size: "100 مل ",
+  tag: "normal", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "", // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: " ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+img:"https://aaaastore.com/uploads/product/17416082963896190.webp" 
+},
+
+{ 
+  id: 121, 
+  name:"عطر Opera Noir", 
+  category: "perfume", // أو haircare أو perfume او bodycare او makeup
+  price: 100, // السعر بدون كتابة كلمة شيكل
+  use: "الرائحة: دافئة، حلوة، ومغرية تمنح شعوراً بالحيوية والجاذبية العالية بفضل تباين القهوة مع الفانيليا.", 
+  benefit: "تتميز تركيبة العطر بالتوازن المثير بين حلاوة الفواكه، دفء القهوة، ونعومة الفانيليا", 
+  size: "100 مل ",
+  tag: "normal", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "", // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: " ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+img:"https://fragra.de/cdn/shop/files/Maison_Alhambra_Parfum_Opera_Noir_Eau_de_Parfum_100_ml.jpg?v=1756122610&width=1200" 
+},
+
+{ 
+  id: 122, 
+  name:"عطر Zaragoza Her Eau de Parfum", 
+  category: "perfume", // أو haircare أو perfume او bodycare او makeup
+  price: 100, // السعر بدون كتابة كلمة شيكل
+  use: "تبدأ الرائحة بلمسة فاكهية حيوية ومنعشة ثم يتحول العطر سريعاً إلى باقة أنثوية ناعمة من الأزهار بعدها يستقر العطر على قاعدة غنية ودادئة تمنحه الثبات والعمق.", 
+  benefit: "طبيعة الرائحة: يوازن بين الحلاوة والعمق، ويمتاز بطابع أنيق وجذاب.", 
+  size: "100 مل ",
+  tag: "normal", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "", // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: " ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+img:"https://cdn.mart.ps/362350-large_default/zaragoza-her-edp-for-women-100ml.jpg" 
+},
+
+{ 
+  id: 123, 
+  name:"عطر Floral Bloom", 
+  category: "perfume", // أو haircare أو perfume او bodycare او makeup
+  price: 120, // السعر بدون كتابة كلمة شيكل
+  use: "الرائحة السائدة هي الزهور البيضاء البودرية والنظيفة، وهي رائحة أنثوية ناعمة، كلاسيكية، وغير سكرية. وهو مثالي جداً للأجواء الربيعية والصيفية، والاستخدام اليومي، أو بعد الاستحمام لإعطاء شعور بالنظافة والانتعاش الزهري.", 
+  benefit: "تحاكي رائحته حدائق الزهور البيضاء المتفتحة.", 
+  size: "100 مل ",
+  tag: "normal", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "", // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: " ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+img:" https://arafeh.ps/wp-content/uploads/2025/02/968746351-600x600.png" 
+},
+
+{ 
+  id: 124, 
+  name:"عطر Jardin de Paris Eau de Parfum", 
+  category: "perfume", // أو haircare أو perfume او bodycare او makeup
+  price: 120, // السعر بدون كتابة كلمة شيكل
+  use: "رائحته أنثوية، نظيفة، زهرية-فاكهية راقية، وليس ثقيلًا أو شرقيًا قويًا. هو من العطور التي تعطي إحساس نظافة وأناقة أكثر من كونه عطرًا ملفتًا جدًا أو حلوًا بشكل مبالغ فيه", 
+  benefit: "رائحة ناعمة انثوية لطيفة", 
+  size: "100 مل ",
+  tag: "normal", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "", // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: " ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+img:"https://www.o2morny.com/cdn/shop/files/maison-alhambra-jardin-de-paris-edp-100ml_2.jpg?v=1756795144&width=1946" 
+},
+
+{ 
+  id: 125, 
+  name:"عطر Euzonea(يوزونيا)", 
+  category: "perfume", // أو haircare أو perfume او bodycare او makeup
+  price: 90, // السعر بدون كتابة كلمة شيكل
+  use: " يجمع بين طابع الفواكه الاستوائية اللذيذة وعمق الأخشاب الدافئة. يفضل استخدامه في الأجواء الباردة (الخريف والشتاء) والمناسبات المسائية نظراً لدفئه وجاذبيته الغامضة.", 
+  benefit: "عطر نسائي شرقي - زهري فاكهي", 
+  size: "100 مل ",
+  tag: "normal", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "", // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: " ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+img:"https://m.media-amazon.com/images/I/516lvlyNhVL.jpg" 
+},
+
+{ 
+  id: 126, 
+  name:"مزيل عرق بخاخ (Deodorant Spray) ", 
+  category: "perfume", // أو haircare أو perfume او bodycare او makeup
+  price: 90, // السعر بدون كتابة كلمة شيكل
+  use: " يعمل على منع ظهور البكتيريا المسببة للروائح الكريهة في منطقة الإبطين، مما يمنحك شعوراً بالنظافة والانتعاش يدوم طويلاً وهو مناسب للاستخدام اليومي بعد الاستحمام، ويتميز بأنه سريع الجفاف ولا يترك علامات بيضاء أو بقعاً واضحة على الملابس", 
+  benefit: "يوفر حماية طويلة الأمد ضد رائحة التعرق بتركيبة منعشة وخفيفة", 
+  size: "200 مل ",
+  tag: "normal", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "", // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: " ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+img:"https://arafeh.ps/wp-content/uploads/2024/09/654445465.jpg" 
+},
+
+{ 
+  id: 127, 
+  name:"عطر WILD & SPICY EAU DE PARFUM", 
+  category: "perfume", // أو haircare أو perfume او bodycare او makeup
+  price: 90, // السعر بدون كتابة كلمة شيكل
+  use: " النوتات العليا هي بيرغاموت وبينك بيبر؛ النغمات الوسطى هي روز، هيليوتروبي وفريزيا؛ الملاحظات الأساسية هي المسك، الفانيليا وتونكا بين", 
+  benefit: "عطر رجالي فخم قوي وحار ", 
+  size: "100 مل ",
+  tag: "normal", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "", // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: " ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+img:"https://cdn.miswag.me/images/images/9e681ca8-d0b7-4b5a-b494-4341b5deff9f.jpg" 
+},
+
+{ 
+  id: 128, 
+  name:"عطر Musk Collection Blueberry (مسك الطهارة)", 
+  category: "perfume", // أو haircare أو perfume او bodycare او makeup
+  price: 90, // السعر بدون كتابة كلمة شيكل
+  use: " عطر شرقي زهري مسكي مصمم للجنسين، يجمع بين إحساس النظافة والانتعاش البودري للمسك الأبيض مع حلاوة التوت البري الفاكهية اللطيفة", 
+  benefit: "رائحة سويت (حلوة) خفيفة متوازنة مع نوتات النظافة البودرية، وليست مزعجة أو ثقيلة ", 
+  size: "100 مل ",
+  tag: "normal", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "", // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: " ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+img:"https://www.perfumenz.co.nz/cdn/shop/files/gulf-orchid-blueberry_1200x1200.png?v=1768172139" 
+},
+
+{ 
+  id: 129, 
+  name:" مسك الطهارة فانيلا (Tahara Vanilla)", 
+  category: "perfume", // أو haircare أو perfume او bodycare او makeup
+  price: 90, // السعر بدون كتابة كلمة شيكل
+  use: " عطر فرنسي-شرقي مميز يجمع بين انتعاش النظافة ودفء الفانيليا الحلوة ", 
+  benefit: "طر بودري، ناعم، يمنح إحساساً بالنظافة والانتعاش مع لمسة كريمية دافئة تدوم طويلاً ", 
+  size: "60 مل ",
+  tag: "normal", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "", // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: " ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlFpwJcz0cgLFUWgpdX5HLrB7wsaILM3nE0ZWYmpTsXXrNA4yrHYCr73A&s=10" 
+},
+
+{ 
+  id: 130, 
+  name:"مسك الفواكه الاستوائية (Musk Collection Tropical Fruits)", 
+  category: "perfume", // أو haircare أو perfume او bodycare او makeup
+  price: 90, // السعر بدون كتابة كلمة شيكل
+  use: " عطر حيوي، منعش، ومناسب جدًا للاستخدام اليومي بعد الاستحمام لمنح إحساس طويل الأمد بالنظافة والبهجة الاستوائية ", 
+  benefit: "يشتهر بكونه يدمج بين انتعاش ونضارة الصيف ونقاء رائحة النظافة ", 
+  size: "60 مل ",
+  tag: "normal", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "", // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: " ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+img:" https://geniecollection.ps/cdn/shop/files/Gulf-Orchid-Musk-Collection-Tropical-Fruits-11_grande.png?v=1777741751" 
+},
+
+{ 
+  id: 131, 
+  name:"عطر مشاعر الحب (Mashaer Al Hub)", 
+  category: "perfume", // أو haircare أو perfume او bodycare او makeup
+  price: 100, // السعر بدون كتابة كلمة شيكل
+  use: "  ", 
+  benefit: "يتميز هذا العطر بتركيبة شرقية خشبية دافئة ومثيرة ", 
+  size: "60 مل ",
+  tag: "normal", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "", // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: " ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+img:"  https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRG6_U64BMmpiwwmQ4s5_B3Y_fmXW6J3_PRle16Li4olg&s" 
+},
+
+{ 
+  id: 132, 
+  name:"عطر My Elsatys", 
+  category: "perfume", // أو haircare أو perfume او bodycare او makeup
+  price: 100, // السعر بدون كتابة كلمة شيكل
+  use: " يمتاز هذا العطر بتركيبة زهرية مسكية دافئة مستوحاة من خطوط العطور العصرية والأنيقة وهو : عطر ناعم ومثالي للاستخدام اليومي أو المناسبات الخاصة بفضل توازنه النقي بين الانتعاش الحمضي والدفء الخشبي المسكي ", 
+  benefit: " يجمع بين الرقة والجاذبية ", 
+  size: "60 مل ",
+  tag: "normal", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "", // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: " ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+img:" https://m.media-amazon.com/images/I/510tE5oY18L.jpg" 
+},
+
+{ 
+  id: 134, 
+  name:"بخور عود مثيرة (Oud Mutheera) ", 
+  category: "perfume", // أو haircare أو perfume او bodycare او makeup
+  price: 30, // السعر بدون كتابة كلمة شيكل
+  use: " بخور شرقي فاخر مكوّن من قطع خشبية مشبعة بالزيوت العطرية النقية بدلاً من كونه عطراً سائلاً رشاشاً ", 
+  benefit: "يتميز هذا البخور بتركيبة عطرية غنية وتوليفة شرقية دافئة تجمع بين العراقة والنعومة الزهرية. ", 
+  size: "60 جرام ",
+  tag: "normal", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "", // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: " ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+img:" https://www.oriental-style.de/cdn/shop/files/ba0dc57ab0a7092cb961e86906b39bb4.png?v=1776695708&width=2048" 
+},
+
+{ 
+  id: 135, 
+  name:"بخاخ التبيض الفوري", 
+  category: "bodycare", // أو haircare أو perfume او bodycare او makeup
+  price: 15, // السعر بدون كتابة كلمة شيكل
+  use: "تفتيح فوري وتوحيد اللون: يمنح تفتيحاً سريعاً ومؤقتاً للوجه والجسم.ترطيب عميق: يغذي البشرة الجافة ويمنحها نعومة مخملية تدوم طويلاً.حماية من الشمس: يوفر حماية من الأشعة فوق البنفسجية وعوامل الجو بعامل حماية SPF 30.مقاوم للماء: يتميز بتركيبة ثابتة لا تزول بسهولة مع العرق أو الماء.سريع الامتصاص: رذاذ خفيف الوزن تمتصه البشرة بسرعة دون ترك أي أثر دهني أو لمعان ", 
+  benefit: " برائحة زهر البرتقال المنعشة  ", 
+  size: "150 مل ",
+  tag: "normal", // اكتبيها 'bestseller' إذا كنتِ تريدينه أن يظهر في الأكثر مبيعاً
+  skinType: "", // نوع البشرة المتوافقة (oily, dry, mixed, sensitive, all)
+  issue: " ", // المشكلة المتوافقة (acne, pigmentation, dryness, wrinkles)
+img:" https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPvK_8xK_81IMczbbkgi8I_9rhMT1TVZw8yAByc4q2HxCErwtOYx0lkro&s=10" 
+},
 
 
         ];
@@ -1513,10 +2503,14 @@
             const name = document.getElementById('custName').value;
             const phone = document.getElementById('custPhone').value;
             const area = document.getElementById('custArea').value;
-            const payment = document.getElementById('custPayment').value;
+            
+            // ✅ التصحيح هنا: استخدام id الصحيح لطريقة الدفع
+            const paymentSelect = document.getElementById('payment-method');
+            const payment = paymentSelect ? paymentSelect.options[paymentSelect.selectedIndex]?.text || "الدفع عند الاستلام" : "الدفع عند الاستلام";
+            
             const total = document.getElementById('cartTotalSum').innerText;
 
-            // صياغة نص الرسالة المتجهة للواتساب بشكل فخم ومنظم للطباعة أو القراءة
+            // صياغة نص الرسالة المتجهة للواتساب بشكل فخم ومنظم
             let message = `*طلب جديد من متجر Noor Store 🛍️*\n\n`;
             message += `👤 *اسم الزبونة:* ${name}\n`;
             message += `📞 *رقم الجوال:* ${phone}\n`;
@@ -1544,8 +2538,18 @@
             cart = [];
             updateCartUI();
             toggleCart(false);
-            document.getElementById('checkoutForm').reset();
-            alert("تم تجهيز تفاصيل طلبكِ بنجاح! سيتم نقلكِ الآن إلى الواتساب لإرساله لنا  لتأكيده الفوري. شكراً لكِ 💖");
+            
+            // reset form
+            document.getElementById('custName').value = "";
+            document.getElementById('custPhone').value = "";
+            document.getElementById('custArea').value = "";
+            if(paymentSelect) paymentSelect.value = "cod";
+            
+            // إخفاء صندوق البنك إذا كان ظاهراً
+            const bankBox = document.getElementById('bank-details-box');
+            if(bankBox) bankBox.style.display = "none";
+            
+            alert(" 💖 تم تجهيز تفاصيل طلبكِ بنجاح شكراً لطلبك من متجرنا💖");
         }
 
         // محرك البحث الذكي وحقل الاقتراحات التلقائية (Autocomplete)
@@ -1611,6 +2615,34 @@
                 if(list) list.style.display = 'none';
             }
         });
+
+        // دالة إظهار وإخفاء تفاصيل الحساب البنكي
+        function togglePaymentDetails() {
+            const paymentMethod = document.getElementById('payment-method');
+            const bankBox = document.getElementById('bank-details-box');
+            
+            if (paymentMethod && bankBox) {
+                if (paymentMethod.value === 'bank') {
+                    bankBox.style.display = 'block';
+                } else {
+                    bankBox.style.display = 'none';
+                }
+            }
+        }
+// دالة إظهار وإخفاء تفاصيل الحساب البنكي المفقودة في موقعكِ
+function togglePaymentDetails() {
+    const paymentMethod = document.getElementById('payment-method');
+    const bankBox = document.getElementById('bank-details-box');
+    
+    // التحقق من أن العناصر موجودة في الـ HTML حتى لا يحدث خطأ برميجي
+    if (paymentMethod && bankBox) {
+        if (paymentMethod.value === 'bank') {
+            bankBox.style.display = 'block';
+        } else {
+            bankBox.style.display = 'none';
+        }
+    }
+}
 
 
     </script>
